@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -32,6 +33,7 @@ function App() {
   const [isIos, setIsIos] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
   const [showIosHint, setShowIosHint] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     const ios = isIOS();
@@ -50,10 +52,16 @@ function App() {
       setShowInstallButton(true);
     };
 
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
     window.addEventListener("beforeinstallprompt", handler);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -87,34 +95,27 @@ function App() {
   return (
     <div className="app-container">
       <Header onMenuItemClick={handleMenuItemClick} />
-      <main className="app-main">
-        <section className="app-section">
-          <h2 className="app-section-title">{t("homepageTitle")}</h2>
-          <p className="app-section-text">{t("homepageText")}</p>
-        </section>
+      <div className="app-layout">
+        {isDesktop && <Sidebar onMenuItemClick={handleMenuItemClick} />}
+        <main className="app-main">
+          <section className="app-section">
+            <h2 className="app-section-title">{t("homepageTitle")}</h2>
+            <p className="app-section-text">{t("homepageText")}</p>
+          </section>
 
-        <section className="button-container">
-          <button
-            type="button"
-            className="button-primary"
-            onClick={() => {
-              alert(t("exampleActionAlert"));
-            }}
-          >
-            {t("exampleAction")}
-          </button>
-
-          <button
-            type="button"
-            onClick={handleInstallClick}
-            className={`button-secondary ${
-              showInstallButton || (isIos && !isStandalone) ? "" : "disabled"
-            }`}
-          >
-            {t("installApp")}
-          </button>
-        </section>
-      </main>
+          <section className="button-container">
+            <button
+              type="button"
+              onClick={handleInstallClick}
+              className={`button-secondary ${
+                showInstallButton || (isIos && !isStandalone) ? "" : "disabled"
+              }`}
+            >
+              {t("installApp")}
+            </button>
+          </section>
+        </main>
+      </div>
 
       {isIos && !isStandalone && showIosHint && (
         <div className="ios-hint">

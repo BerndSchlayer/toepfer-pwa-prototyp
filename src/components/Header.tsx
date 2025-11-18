@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Menu,
@@ -18,6 +18,20 @@ interface HeaderProps {
 export default function Header({ onMenuItemClick }: HeaderProps) {
   const { t } = useTranslation("app");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const desktop = window.innerWidth >= 768;
+      setIsDesktop(desktop);
+      if (desktop) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,18 +60,20 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
             <div className="logo-circle">T</div>
           </div>
           <h1 className="header-title">{t("appTitle")}</h1>
-          <button
-            type="button"
-            className="hamburger-button"
-            onClick={toggleMenu}
-            aria-label="Menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {!isDesktop && (
+            <button
+              type="button"
+              className="hamburger-button"
+              onClick={toggleMenu}
+              aria-label="Menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          )}
         </div>
       </header>
 
-      {isMenuOpen && (
+      {!isDesktop && isMenuOpen && (
         <>
           <div className="menu-overlay" onClick={toggleMenu} />
           <nav className="slide-menu">

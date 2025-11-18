@@ -4,7 +4,6 @@
   "subtitle": "This app serves as a prototype for a progressive web app based on React.",
   "homepageTitle": "Home",
   "homepageText": "This prototype is being developed step by step. The application can be installed as an app on your device.",
-  "exampleAction": "Example Action",
   "installApp": "Install App",
   "exampleActionAlert": "A function could be started here later.",
   "installNotSupported": "Installation is not supported by this browser.",

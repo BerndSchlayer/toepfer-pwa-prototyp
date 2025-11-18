@@ -4,7 +4,6 @@
   "subtitle": "Această aplicație servește ca prototip pentru o aplicație web progresivă bazată pe React.",
   "homepageTitle": "Pagina principală",
   "homepageText": "Acest prototip este dezvoltat pas cu pas. Aplicația poate fi instalată ca aplicație pe dispozitivul dvs.",
-  "exampleAction": "Acțiune exemplu",
   "installApp": "Instalează aplicația",
   "exampleActionAlert": "O funcție ar putea fi pornită aici mai târziu.",
   "installNotSupported": "Instalarea nu este acceptată de acest browser.",
