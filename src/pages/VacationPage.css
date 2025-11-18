@@ -1,12 +1,14 @@
 /* Vacation Form Container */
 .vacation-form-container {
   max-width: 600px;
+  width: 100%;
   /* keep container left-aligned under the page title instead of centering in the whole content area */
   margin: 0;
   background: white;
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .vacation-form {
@@ -117,6 +119,7 @@
 @media (max-width: 768px) {
   .vacation-form-container {
     padding: 1.5rem;
+    max-width: 100%;
   }
 
   .vacation-form {
@@ -125,6 +128,7 @@
 
   .form-input {
     font-size: 0.95rem;
+    max-width: 100%;
   }
 
   .submit-button {
@@ -137,11 +141,13 @@
   .vacation-form-container {
     padding: 1rem;
     border-radius: 0;
+    max-width: 100%;
   }
 
   .form-input {
     font-size: 0.9rem;
     padding: 0.875rem 0.625rem 0.375rem;
+    max-width: 100%;
   }
 
   .form-label {
@@ -151,5 +157,9 @@
   .form-input:focus + .form-label,
   .form-input:not(:placeholder-shown) + .form-label {
     font-size: 0.7rem;
+  }
+
+  .submit-button {
+    width: 100%;
   }
 }
