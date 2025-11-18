@@ -13,7 +13,7 @@
     "schedule": "Dienstplan",
     "payslips": "Lohnabrechnungen",
     "vacation": "Urlaub beantragen",
-    "chat": "Mit Team Chatten",
+    "chat": "Chat",
     "training": "Schulungsvideos"
   },
   "language": {
@@ -61,5 +61,16 @@
     "submitButton": "Urlaubsantrag senden",
     "sending": "Wird gesendet...",
     "successMessage": "Ihr Urlaubsantrag wurde erfolgreich gesendet!"
+  },
+  "chat": {
+    "title": "Mit Team chatten",
+    "supervisor": "Vorgesetzter",
+    "team": "Team",
+    "messagePlaceholder": "Nachricht eingeben...",
+    "uploadImage": "Bild hochladen",
+    "takePhoto": "Foto aufnehmen",
+    "autoResponse": "Danke für Ihre Nachricht! Wir melden uns bald.",
+    "cameraNotSupported": "Kamera wird von diesem Gerät nicht unterstützt.",
+    "cameraError": "Fehler beim Zugriff auf die Kamera. Bitte überprüfen Sie die Berechtigungen."
   }
 }

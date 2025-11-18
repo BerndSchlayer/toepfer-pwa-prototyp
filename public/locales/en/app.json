@@ -13,7 +13,7 @@
     "schedule": "Work Schedule",
     "payslips": "Payslips",
     "vacation": "Request Vacation",
-    "chat": "Chat with Team",
+    "chat": "Chat",
     "training": "Training Videos"
   },
   "language": {
@@ -61,5 +61,16 @@
     "submitButton": "Submit Vacation Request",
     "sending": "Sending...",
     "successMessage": "Your vacation request has been submitted successfully!"
+  },
+  "chat": {
+    "title": "Chat with Team",
+    "supervisor": "Supervisor",
+    "team": "Team",
+    "messagePlaceholder": "Type a message...",
+    "uploadImage": "Upload image",
+    "takePhoto": "Take photo",
+    "autoResponse": "Thank you for your message! We'll get back to you soon.",
+    "cameraNotSupported": "Camera is not supported on this device.",
+    "cameraError": "Error accessing the camera. Please check permissions."
   }
 }

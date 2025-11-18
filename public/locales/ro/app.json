@@ -13,7 +13,7 @@
     "schedule": "Program de lucru",
     "payslips": "Fișe de salariu",
     "vacation": "Solicită concediu",
-    "chat": "Chat cu echipa",
+    "chat": "Chat",
     "training": "Videoclipuri de formare"
   },
   "language": {
@@ -61,5 +61,16 @@
     "submitButton": "Trimite cererea de concediu",
     "sending": "Se trimite...",
     "successMessage": "Cererea dvs. de concediu a fost trimisă cu succes!"
+  },
+  "chat": {
+    "title": "Discută cu echipa",
+    "supervisor": "Supervizor",
+    "team": "Echipă",
+    "messagePlaceholder": "Scrie un mesaj...",
+    "uploadImage": "Încarcă imagine",
+    "takePhoto": "Fă o poză",
+    "autoResponse": "Mulțumim pentru mesaj! Vă vom răspunde în curând.",
+    "cameraNotSupported": "Camera nu este suportată pe acest dispozitiv.",
+    "cameraError": "Eroare la accesarea camerei. Verificați permisiunile."
   }
 }
