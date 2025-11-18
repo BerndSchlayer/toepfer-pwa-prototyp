@@ -23,5 +23,25 @@
   "install": {
     "title": "Installieren",
     "description": "Installieren Sie die App auf Ihrem Gerät für einen schnellen Zugriff und eine App-ähnliche Erfahrung. Die Installation ist optional und funktioniert wie eine normale App."
+  },
+  "schedule": {
+    "title": "Dienstplan",
+    "weekLabel": "Woche",
+    "previousWeek": "Vorherige Woche",
+    "nextWeek": "Nächste Woche",
+    "dayOfWeek": "Wochentag",
+    "date": "Datum",
+    "description": "Beschreibung",
+    "free": "Frei",
+    "vacation": "Urlaub",
+    "days": {
+      "monday": "Montag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "saturday": "Samstag",
+      "sunday": "Sonntag"
+    }
   }
 }

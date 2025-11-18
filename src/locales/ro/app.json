@@ -23,5 +23,25 @@
   "install": {
     "title": "Instalare",
     "description": "Instalați aplicația pe dispozitivul dvs. pentru acces rapid și o experiență similară unei aplicații. Instalarea este opțională și funcționează ca o aplicație normală."
+  },
+  "schedule": {
+    "title": "Program de lucru",
+    "weekLabel": "Săptămâna",
+    "previousWeek": "Săptămâna precedentă",
+    "nextWeek": "Săptămâna următoare",
+    "dayOfWeek": "Zi",
+    "date": "Data",
+    "description": "Descriere",
+    "free": "Liber",
+    "vacation": "Concediu",
+    "days": {
+      "monday": "Luni",
+      "tuesday": "Marți",
+      "wednesday": "Miercuri",
+      "thursday": "Joi",
+      "friday": "Vineri",
+      "saturday": "Sâmbătă",
+      "sunday": "Duminică"
+    }
   }
 }

@@ -1,0 +1,197 @@
+{
+  "weeks": [
+    {
+      "weekOffset": -1,
+      "days": [
+        {
+          "dayOfWeek": "monday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "12:00", "department": "Halle 1" },
+            { "type": "work", "timeFrom": "13:00", "timeTo": "16:00", "department": "E" }
+          ]
+        },
+        {
+          "dayOfWeek": "tuesday",
+          "entries": [
+            { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "Halle 2" }
+          ]
+        },
+        {
+          "dayOfWeek": "wednesday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "15:00", "department": "Halle 3" }
+          ]
+        },
+        {
+          "dayOfWeek": "thursday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "friday",
+          "entries": [
+            { "type": "work", "timeFrom": "09:00", "timeTo": "14:00", "department": "E" }
+          ]
+        },
+        {
+          "dayOfWeek": "saturday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "sunday",
+          "entries": [
+            { "type": "free" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekOffset": 0,
+      "days": [
+        {
+          "dayOfWeek": "monday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "11:00", "department": "Halle 1" },
+            { "type": "work", "timeFrom": "12:00", "timeTo": "16:00", "department": "Halle 2" }
+          ]
+        },
+        {
+          "dayOfWeek": "tuesday",
+          "entries": [
+            { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "E" }
+          ]
+        },
+        {
+          "dayOfWeek": "wednesday",
+          "entries": [
+            { "type": "vacation" }
+          ]
+        },
+        {
+          "dayOfWeek": "thursday",
+          "entries": [
+            { "type": "vacation" }
+          ]
+        },
+        {
+          "dayOfWeek": "friday",
+          "entries": [
+            { "type": "vacation" }
+          ]
+        },
+        {
+          "dayOfWeek": "saturday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "sunday",
+          "entries": [
+            { "type": "free" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekOffset": 1,
+      "days": [
+        {
+          "dayOfWeek": "monday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "16:00", "department": "Halle 3" }
+          ]
+        },
+        {
+          "dayOfWeek": "tuesday",
+          "entries": [
+            { "type": "work", "timeFrom": "08:00", "timeTo": "12:00", "department": "E" },
+            { "type": "work", "timeFrom": "13:00", "timeTo": "15:00", "department": "Halle 1" }
+          ]
+        },
+        {
+          "dayOfWeek": "wednesday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "14:00", "department": "Halle 2" }
+          ]
+        },
+        {
+          "dayOfWeek": "thursday",
+          "entries": [
+            { "type": "work", "timeFrom": "09:00", "timeTo": "16:00", "department": "Halle 1" }
+          ]
+        },
+        {
+          "dayOfWeek": "friday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "saturday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "sunday",
+          "entries": [
+            { "type": "free" }
+          ]
+        }
+      ]
+    },
+    {
+      "weekOffset": 2,
+      "days": [
+        {
+          "dayOfWeek": "monday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "10:00", "department": "E" },
+            { "type": "work", "timeFrom": "11:00", "timeTo": "16:00", "department": "Halle 3" }
+          ]
+        },
+        {
+          "dayOfWeek": "tuesday",
+          "entries": [
+            { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "Halle 1" }
+          ]
+        },
+        {
+          "dayOfWeek": "wednesday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "15:00", "department": "Halle 2" }
+          ]
+        },
+        {
+          "dayOfWeek": "thursday",
+          "entries": [
+            { "type": "work", "timeFrom": "08:00", "timeTo": "13:00", "department": "E" }
+          ]
+        },
+        {
+          "dayOfWeek": "friday",
+          "entries": [
+            { "type": "work", "timeFrom": "07:00", "timeTo": "12:00", "department": "Halle 3" },
+            { "type": "work", "timeFrom": "13:00", "timeTo": "16:00", "department": "Halle 1" }
+          ]
+        },
+        {
+          "dayOfWeek": "saturday",
+          "entries": [
+            { "type": "free" }
+          ]
+        },
+        {
+          "dayOfWeek": "sunday",
+          "entries": [
+            { "type": "free" }
+          ]
+        }
+      ]
+    }
+  ]
+}

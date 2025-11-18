@@ -23,5 +23,25 @@
   "install": {
     "title": "Installer",
     "description": "Installez l'application sur votre appareil pour un accès rapide et une expérience similaire à une application. L'installation est facultative et fonctionne comme une application normale."
+  },
+  "schedule": {
+    "title": "Plan de travail",
+    "weekLabel": "Semaine",
+    "previousWeek": "Semaine précédente",
+    "nextWeek": "Semaine suivante",
+    "dayOfWeek": "Jour",
+    "date": "Date",
+    "description": "Description",
+    "free": "Libre",
+    "vacation": "Vacances",
+    "days": {
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    }
   }
 }

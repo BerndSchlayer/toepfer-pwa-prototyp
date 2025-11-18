@@ -23,5 +23,25 @@
   "install": {
     "title": "Install",
     "description": "Install the app on your device for quick access and an app-like experience. Installation is optional and works like a regular app."
+  },
+  "schedule": {
+    "title": "Work Schedule",
+    "weekLabel": "Week",
+    "previousWeek": "Previous Week",
+    "nextWeek": "Next Week",
+    "dayOfWeek": "Day",
+    "date": "Date",
+    "description": "Description",
+    "free": "Free",
+    "vacation": "Vacation",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
   }
 }

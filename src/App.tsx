@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import LanguageSelector from "./components/LanguageSelector";
+import SchedulePage from "./pages/SchedulePage";
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -35,6 +36,7 @@ function App() {
   const [isStandalone, setIsStandalone] = useState(false);
   const [showIosHint, setShowIosHint] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [currentPage, setCurrentPage] = useState<string>("home");
 
   useEffect(() => {
     const ios = isIOS();
@@ -67,7 +69,7 @@ function App() {
   }, []);
 
   const handleMenuItemClick = (item: string) => {
-    alert(`Menüpunkt geklickt: ${item}`);
+    setCurrentPage(item);
   };
 
   const handleInstallClick = async () => {
@@ -99,34 +101,39 @@ function App() {
       <div className="app-layout">
         {isDesktop && <Sidebar onMenuItemClick={handleMenuItemClick} />}
         <main className="app-main">
-          <section className="app-section">
-            <h2 className="app-section-title">{t("homepageTitle")}</h2>
-            <p className="app-section-text">{t("homepageText")}</p>
-          </section>
+          {currentPage === "schedule" && <SchedulePage />}
+          {currentPage === "home" && (
+            <>
+              <section className="app-section">
+                <h2 className="app-section-title">{t("homepageTitle")}</h2>
+                <p className="app-section-text">{t("homepageText")}</p>
+              </section>
 
-          <section className="app-section">
-            <h2 className="app-section-title">{t("language.title")}</h2>
-            <p className="app-section-text">{t("language.description")}</p>
-            <LanguageSelector />
-          </section>
+              <section className="app-section">
+                <h2 className="app-section-title">{t("language.title")}</h2>
+                <p className="app-section-text">{t("language.description")}</p>
+                <LanguageSelector />
+              </section>
 
-          <section className="app-section">
-            <h2 className="app-section-title">{t("install.title")}</h2>
-            <p className="app-section-text">{t("install.description")}</p>
-            <div className="button-container">
-              <button
-                type="button"
-                onClick={handleInstallClick}
-                className={`button-secondary ${
-                  showInstallButton || (isIos && !isStandalone)
-                    ? ""
-                    : "disabled"
-                }`}
-              >
-                {t("installApp")}
-              </button>
-            </div>
-          </section>
+              <section className="app-section">
+                <h2 className="app-section-title">{t("install.title")}</h2>
+                <p className="app-section-text">{t("install.description")}</p>
+                <div className="button-container">
+                  <button
+                    type="button"
+                    onClick={handleInstallClick}
+                    className={`button-secondary ${
+                      showInstallButton || (isIos && !isStandalone)
+                        ? ""
+                        : "disabled"
+                    }`}
+                  >
+                    {t("installApp")}
+                  </button>
+                </div>
+              </section>
+            </>
+          )}
         </main>
       </div>
 
