@@ -1,7 +1,8 @@
 /* Vacation Form Container */
 .vacation-form-container {
   max-width: 600px;
-  margin: 0 auto;
+  /* keep container left-aligned under the page title instead of centering in the whole content area */
+  margin: 0;
   background: white;
   border-radius: 8px;
   padding: 2rem;
@@ -19,6 +20,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-input {
@@ -31,6 +33,7 @@
   transition: all 0.3s ease;
   background: white;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .form-input:focus {
@@ -86,6 +89,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(74, 124, 89, 0.3);
   margin-top: 0.5rem;
+  box-sizing: border-box;
 }
 
 .submit-button:hover:not(:disabled) {
