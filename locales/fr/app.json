@@ -13,7 +13,7 @@
     "schedule": "Plan de travail",
     "payslips": "Bulletins de salaire",
     "vacation": "Demander des vacances",
-    "chat": "Discuter avec l'équipe",
+    "chat": "Chat",
     "training": "Vidéos de formation"
   },
   "language": {
@@ -61,5 +61,16 @@
     "submitButton": "Envoyer la demande de vacances",
     "sending": "Envoi en cours...",
     "successMessage": "Votre demande de vacances a été envoyée avec succès!"
+  },
+  "chat": {
+    "title": "Discuter avec l'équipe",
+    "supervisor": "Superviseur",
+    "team": "Équipe",
+    "messagePlaceholder": "Tapez un message...",
+    "uploadImage": "Télécharger une image",
+    "takePhoto": "Prendre une photo",
+    "autoResponse": "Merci pour votre message! Nous vous répondrons bientôt.",
+    "cameraNotSupported": "L'appareil photo n'est pas pris en charge sur cet appareil.",
+    "cameraError": "Erreur d'accès à la caméra. Veuillez vérifier les autorisations."
   }
 }
