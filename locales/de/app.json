@@ -5,6 +5,7 @@
   "homepageTitle": "Startseite",
   "homepageText": "Hier entsteht Schritt für Schritt der Prototyp. Die Anwendung kann als App auf dem Gerät installiert werden.",
   "installApp": "App installieren",
+  "alreadyInstalled": "Die App ist bereits installiert.",
   "exampleActionAlert": "Hier könnte später eine Funktion starten.",
   "installNotSupported": "Die Installation wird von diesem Browser nicht unterstützt.",
   "iosHintText": "Um diese App zu installieren, öffne das Teilen Symbol in Safari und wähle \"Zum Home Bildschirm\".",
