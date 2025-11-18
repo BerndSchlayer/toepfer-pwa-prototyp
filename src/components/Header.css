@@ -94,7 +94,7 @@
 /* Slide Menu */
 .slide-menu {
   position: fixed;
-  top: 0;
+  top: 57px; /* Höhe des Headers - beginnt unterhalb des Headers */
   right: 0;
   bottom: 0;
   width: 280px;

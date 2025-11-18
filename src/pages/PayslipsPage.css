@@ -65,12 +65,37 @@
     min-width: 40px;
     justify-content: center;
   }
+  
+  /* Icon in Beschreibung verkleinern */
+  .description-with-icon {
+    gap: 0.35rem;
+  }
+  
+  .file-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 @media (max-width: 480px) {
   .download-button {
-    padding: 0.5rem;
-    min-width: 40px;
+    padding: 0.4rem;
+    min-width: 36px;
     justify-content: center;
+  }
+  
+  .download-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Icon in Beschreibung weiter verkleinern */
+  .description-with-icon {
+    gap: 0.25rem;
+  }
+  
+  .file-icon {
+    width: 14px;
+    height: 14px;
   }
 }

@@ -79,7 +79,7 @@
   }
 
   .data-table {
-    min-width: 500px;
+    min-width: 100%; /* Tabelle passt sich der Breite an */
   }
 
   .data-table th,
@@ -87,14 +87,54 @@
     padding: 0.75rem 0.5rem;
     font-size: 0.85rem;
   }
+  
+  /* Spaltenbreiten für mobile Geräte */
+  .data-table th:nth-child(1),
+  .data-table td:nth-child(1) {
+    width: 25%; /* Datum */
+  }
+  
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) {
+    width: 50%; /* Beschreibung */
+  }
+  
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) {
+    width: 25%; /* Dokument */
+    padding: 0.75rem 0.25rem;
+  }
 }
 
 @media (max-width: 480px) {
   .data-table {
-    min-width: 450px;
+    min-width: 100%;
   }
 
   .page-title {
     font-size: 1.25rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Engere Spalten für sehr kleine Bildschirme */
+  .data-table th:nth-child(1),
+  .data-table td:nth-child(1) {
+    width: 30%; /* Datum */
+  }
+  
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) {
+    width: 45%; /* Beschreibung */
+  }
+  
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) {
+    width: 25%; /* Dokument */
+    padding: 0.5rem 0.15rem;
   }
 }
