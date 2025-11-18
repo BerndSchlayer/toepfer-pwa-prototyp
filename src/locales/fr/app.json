@@ -43,5 +43,14 @@
       "saturday": "Samedi",
       "sunday": "Dimanche"
     }
+  },
+  "payslips": {
+    "title": "Bulletins de paie",
+    "date": "Date",
+    "description": "Description",
+    "document": "Document",
+    "payslip": "Bulletin de paie",
+    "timesheet": "Feuille de temps",
+    "download": "Télécharger"
   }
 }

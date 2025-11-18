@@ -1,0 +1,76 @@
+/* Spezifische Zellen-Styles */
+.date-cell {
+  color: #555;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.description-cell {
+  color: #333;
+}
+
+.description-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.file-icon {
+  color: #4a7c59;
+  flex-shrink: 0;
+}
+
+.document-cell {
+  text-align: center;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #4a7c59 0%, #5a8f6a 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(74, 124, 89, 0.3);
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 124, 89, 0.4);
+  background: linear-gradient(135deg, #5a8f6a 0%, #6a9f7a 100%);
+}
+
+.download-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(74, 124, 89, 0.3);
+}
+
+.download-button svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .download-text {
+    display: none;
+  }
+
+  .download-button {
+    padding: 0.5rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-button {
+    padding: 0.5rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+}

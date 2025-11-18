@@ -43,5 +43,14 @@
       "saturday": "Samstag",
       "sunday": "Sonntag"
     }
+  },
+  "payslips": {
+    "title": "Lohnabrechnungen",
+    "date": "Datum",
+    "description": "Beschreibung",
+    "document": "Dokument",
+    "payslip": "Lohnabrechnung",
+    "timesheet": "Stundennachweis",
+    "download": "Herunterladen"
   }
 }

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import LanguageSelector from "./components/LanguageSelector";
 import SchedulePage from "./pages/SchedulePage";
+import PayslipsPage from "./pages/PayslipsPage";
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -102,6 +103,7 @@ function App() {
         {isDesktop && <Sidebar onMenuItemClick={handleMenuItemClick} />}
         <main className="app-main">
           {currentPage === "schedule" && <SchedulePage />}
+          {currentPage === "payslips" && <PayslipsPage />}
           {currentPage === "home" && (
             <>
               <section className="app-section">

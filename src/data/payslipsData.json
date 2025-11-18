@@ -1,0 +1,54 @@
+{
+  "payslips": [
+    {
+      "monthOffset": -4,
+      "type": "payslip",
+      "document": "Beispiel-Lohnabrechnung.pdf"
+    },
+    {
+      "monthOffset": -4,
+      "type": "timesheet",
+      "document": "stundennachweis.pdf"
+    },
+    {
+      "monthOffset": -3,
+      "type": "payslip",
+      "document": "Beispiel-Lohnabrechnung.pdf"
+    },
+    {
+      "monthOffset": -3,
+      "type": "timesheet",
+      "document": "stundennachweis.pdf"
+    },
+    {
+      "monthOffset": -2,
+      "type": "payslip",
+      "document": "Beispiel-Lohnabrechnung.pdf"
+    },
+    {
+      "monthOffset": -2,
+      "type": "timesheet",
+      "document": "stundennachweis.pdf"
+    },
+    {
+      "monthOffset": -1,
+      "type": "payslip",
+      "document": "Beispiel-Lohnabrechnung.pdf"
+    },
+    {
+      "monthOffset": -1,
+      "type": "timesheet",
+      "document": "stundennachweis.pdf"
+    },
+    {
+      "monthOffset": 0,
+      "type": "payslip",
+      "document": "Beispiel-Lohnabrechnung.pdf"
+    },
+    {
+      "monthOffset": 0,
+      "type": "timesheet",
+      "document": "stundennachweis.pdf"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import scheduleData from "../data/scheduleData.json";
+import "./CommonPage.css";
 import "./SchedulePage.css";
 
 interface ScheduleEntry {
@@ -128,9 +129,9 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="schedule-page">
-      <header className="schedule-header">
-        <h1 className="schedule-title">{t("schedule.title")}</h1>
+    <div className="page-container">
+      <header className="page-header">
+        <h1 className="page-title">{t("schedule.title")}</h1>
       </header>
 
       <div className="week-navigation">
@@ -158,8 +159,8 @@ export default function SchedulePage() {
         </button>
       </div>
 
-      <div className="schedule-table-container">
-        <table className="schedule-table">
+      <div className="table-container">
+        <table className="data-table">
           <thead>
             <tr>
               <th>{t("schedule.dayOfWeek")}</th>

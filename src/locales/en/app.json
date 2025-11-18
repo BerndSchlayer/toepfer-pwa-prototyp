@@ -43,5 +43,14 @@
       "saturday": "Saturday",
       "sunday": "Sunday"
     }
+  },
+  "payslips": {
+    "title": "Payslips",
+    "date": "Date",
+    "description": "Description",
+    "document": "Document",
+    "payslip": "Payslip",
+    "timesheet": "Timesheet",
+    "download": "Download"
   }
 }
