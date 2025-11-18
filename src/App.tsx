@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import LanguageSelector from "./components/LanguageSelector";
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -101,6 +102,12 @@ function App() {
           <section className="app-section">
             <h2 className="app-section-title">{t("homepageTitle")}</h2>
             <p className="app-section-text">{t("homepageText")}</p>
+          </section>
+
+          <section className="app-section">
+            <h2 className="app-section-title">{t("language.title")}</h2>
+            <p className="app-section-text">{t("language.description")}</p>
+            <LanguageSelector />
           </section>
 
           <section className="button-container">

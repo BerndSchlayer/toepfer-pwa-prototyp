@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Video,
 } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
 import "./Header.css";
 
 interface HeaderProps {
@@ -93,6 +94,9 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
                   </li>
                 );
               })}
+              <li className="menu-language-selector">
+                <LanguageSelector variant="compact" />
+              </li>
             </ul>
           </nav>
         </>

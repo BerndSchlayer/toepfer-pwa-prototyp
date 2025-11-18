@@ -155,6 +155,15 @@
   flex: 1;
 }
 
+.menu-language-selector {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: none;
+}
+
 /* Responsive Anpassungen */
 @media (max-width: 480px) {
   .header-title {

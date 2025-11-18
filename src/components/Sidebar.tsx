@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Calendar, FileText, Plane, MessageCircle, Video } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
 import "./Sidebar.css";
 
 interface SidebarProps {
@@ -42,6 +43,9 @@ export default function Sidebar({ onMenuItemClick }: SidebarProps) {
               </li>
             );
           })}
+          <li className="sidebar-language-selector">
+            <LanguageSelector variant="compact" />
+          </li>
         </ul>
       </nav>
     </aside>
