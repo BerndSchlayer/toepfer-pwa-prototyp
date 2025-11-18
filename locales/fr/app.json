@@ -1,0 +1,23 @@
+{
+  "appTitle": "Töpfer Employés",
+  "title": "Prototype PWA Toepfer",
+  "subtitle": "Cette application sert de prototype pour une application web progressive basée sur React.",
+  "homepageTitle": "Accueil",
+  "homepageText": "Ce prototype est développé étape par étape. L'application peut être installée en tant qu'application sur votre appareil.",
+  "installApp": "Installer l'application",
+  "exampleActionAlert": "Une fonction pourrait être lancée ici plus tard.",
+  "installNotSupported": "L'installation n'est pas prise en charge par ce navigateur.",
+  "iosHintText": "Pour installer cette application, ouvrez l'icône Partager dans Safari et sélectionnez \"Sur l'écran d'accueil\".",
+  "closeHint": "Fermer l'indication",
+  "menu": {
+    "schedule": "Plan de travail",
+    "payslips": "Bulletins de salaire",
+    "vacation": "Demander des vacances",
+    "chat": "Discuter avec l'équipe",
+    "training": "Vidéos de formation"
+  },
+  "language": {
+    "title": "Choisir la langue",
+    "description": "Choisissez votre langue préférée pour l'application. Votre sélection sera enregistrée automatiquement."
+  }
+}
