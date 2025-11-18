@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import Header from "./components/Header";
+import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -22,6 +25,7 @@ function isInStandaloneMode(): boolean {
 }
 
 function App() {
+  const { t } = useTranslation("app");
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
@@ -53,6 +57,10 @@ function App() {
     };
   }, []);
 
+  const handleMenuItemClick = (item: string) => {
+    alert(`Menüpunkt geklickt: ${item}`);
+  };
+
   const handleInstallClick = async () => {
     // Android, Desktop und Browser mit native Install Unterstützung
     if (deferredPrompt) {
@@ -73,129 +81,50 @@ function App() {
       return;
     }
 
-    alert("Die Installation wird von diesem Browser nicht unterstützt.");
+    alert(t("installNotSupported"));
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        margin: 0,
-        padding: "1.5rem",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        backgroundColor: "#f5f5f5",
-      }}
-    >
-      <main
-        style={{
-          maxWidth: "600px",
-          margin: "0 auto",
-          padding: "2rem",
-          borderRadius: "1rem",
-          backgroundColor: "#ffffff",
-          boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
-        }}
-      >
-        <header style={{ marginBottom: "1.5rem" }}>
-          <h1 style={{ fontSize: "1.8rem", margin: 0 }}>
-            Toepfer PWA Prototyp
-          </h1>
-          <p style={{ marginTop: "0.5rem", color: "#555" }}>
-            Diese App dient als Prototyp für eine progressive Web App auf React
-            Basis.
-          </p>
-        </header>
-
-        <section style={{ marginBottom: "1.5rem" }}>
-          <h2 style={{ fontSize: "1.2rem", marginBottom: "0.75rem" }}>
-            Startseite
-          </h2>
-          <p style={{ marginBottom: "0.75rem", color: "#444" }}>
-            Hier entsteht Schritt für Schritt der Prototyp. Die Anwendung kann
-            als App auf dem Gerät installiert werden.
-          </p>
+    <div className="app-container">
+      <Header onMenuItemClick={handleMenuItemClick} />
+      <main className="app-main">
+        <section className="app-section">
+          <h2 className="app-section-title">{t("homepageTitle")}</h2>
+          <p className="app-section-text">{t("homepageText")}</p>
         </section>
 
-        <section
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.75rem",
-            alignItems: "center",
-          }}
-        >
+        <section className="button-container">
           <button
             type="button"
-            style={{
-              padding: "0.75rem 1.25rem",
-              borderRadius: "0.75rem",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "1rem",
-              fontWeight: 500,
-              backgroundColor: "#2563eb",
-              color: "#ffffff",
-            }}
+            className="button-primary"
             onClick={() => {
-              alert("Hier könnte später eine Funktion starten.");
+              alert(t("exampleActionAlert"));
             }}
           >
-            Beispiel Aktion
+            {t("exampleAction")}
           </button>
 
           <button
             type="button"
             onClick={handleInstallClick}
-            style={{
-              padding: "0.75rem 1.25rem",
-              borderRadius: "0.75rem",
-              border: "1px solid #2563eb",
-              cursor: "pointer",
-              fontSize: "1rem",
-              fontWeight: 500,
-              backgroundColor: "#ffffff",
-              color: "#2563eb",
-              opacity: showInstallButton || (isIos && !isStandalone) ? 1 : 0.6,
-            }}
+            className={`button-secondary ${
+              showInstallButton || (isIos && !isStandalone) ? "" : "disabled"
+            }`}
           >
-            App installieren
+            {t("installApp")}
           </button>
         </section>
       </main>
 
       {isIos && !isStandalone && showIosHint && (
-        <div
-          style={{
-            position: "fixed",
-            left: "1rem",
-            right: "1rem",
-            bottom: "1rem",
-            padding: "1rem",
-            borderRadius: "0.75rem",
-            backgroundColor: "#ffffff",
-            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.18)",
-          }}
-        >
-          <p style={{ margin: 0, marginBottom: "0.5rem", color: "#333" }}>
-            Um diese App zu installieren, öffne das Teilen Symbol in Safari und
-            wähle &quot;Zum Home Bildschirm&quot;.
-          </p>
+        <div className="ios-hint">
+          <p className="ios-hint-text">{t("iosHintText")}</p>
           <button
             type="button"
             onClick={() => setShowIosHint(false)}
-            style={{
-              marginTop: "0.5rem",
-              padding: "0.4rem 0.9rem",
-              borderRadius: "0.6rem",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "0.9rem",
-              backgroundColor: "#e5e7eb",
-              color: "#111827",
-            }}
+            className="button-hint-close"
           >
-            Hinweis schließen
+            {t("closeHint")}
           </button>
         </div>
       )}

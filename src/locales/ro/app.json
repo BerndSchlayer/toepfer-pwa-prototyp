@@ -1,0 +1,20 @@
+{
+  "appTitle": "Töpfer Angajați",
+  "title": "Prototip PWA Toepfer",
+  "subtitle": "Această aplicație servește ca prototip pentru o aplicație web progresivă bazată pe React.",
+  "homepageTitle": "Pagina principală",
+  "homepageText": "Acest prototip este dezvoltat pas cu pas. Aplicația poate fi instalată ca aplicație pe dispozitivul dvs.",
+  "exampleAction": "Acțiune exemplu",
+  "installApp": "Instalează aplicația",
+  "exampleActionAlert": "O funcție ar putea fi pornită aici mai târziu.",
+  "installNotSupported": "Instalarea nu este acceptată de acest browser.",
+  "iosHintText": "Pentru a instala această aplicație, deschideți iconița Partajare în Safari și selectați \"Adaugă pe ecranul de pornire\".",
+  "closeHint": "Închide indicația",
+  "menu": {
+    "schedule": "Program de lucru",
+    "payslips": "Fișe de salariu",
+    "vacation": "Solicită concediu",
+    "chat": "Chat cu echipa",
+    "training": "Videoclipuri de formare"
+  }
+}
