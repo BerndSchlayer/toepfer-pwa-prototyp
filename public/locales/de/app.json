@@ -19,5 +19,9 @@
   "language": {
     "title": "Sprache wählen",
     "description": "Wählen Sie Ihre bevorzugte Sprache für die Anwendung. Ihre Auswahl wird automatisch gespeichert."
+  },
+  "install": {
+    "title": "Installieren",
+    "description": "Installieren Sie die App auf Ihrem Gerät für einen schnellen Zugriff und eine App-ähnliche Erfahrung. Die Installation ist optional und funktioniert wie eine normale App."
   }
 }

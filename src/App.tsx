@@ -110,16 +110,22 @@ function App() {
             <LanguageSelector />
           </section>
 
-          <section className="button-container">
-            <button
-              type="button"
-              onClick={handleInstallClick}
-              className={`button-secondary ${
-                showInstallButton || (isIos && !isStandalone) ? "" : "disabled"
-              }`}
-            >
-              {t("installApp")}
-            </button>
+          <section className="app-section">
+            <h2 className="app-section-title">{t("install.title")}</h2>
+            <p className="app-section-text">{t("install.description")}</p>
+            <div className="button-container">
+              <button
+                type="button"
+                onClick={handleInstallClick}
+                className={`button-secondary ${
+                  showInstallButton || (isIos && !isStandalone)
+                    ? ""
+                    : "disabled"
+                }`}
+              >
+                {t("installApp")}
+              </button>
+            </div>
           </section>
         </main>
       </div>
