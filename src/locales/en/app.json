@@ -13,8 +13,15 @@
     "schedule": "Work Schedule",
     "payslips": "Payslips",
     "vacation": "Request Vacation",
-    "chat": "Chat",
-    "training": "Training Videos"
+    "chat": "Chat with Team",
+    "training": "Training Videos",
+    "notification": "Test Notification"
+  },
+  "notification": {
+    "title": "Notification from Töpfer Salate",
+    "body": "This is a test notification from the Töpfer Employee App.",
+    "notSupported": "Notifications are not supported by this browser.",
+    "permissionDenied": "Notifications have been blocked. Please allow notifications in your browser settings."
   },
   "language": {
     "title": "Select Language",

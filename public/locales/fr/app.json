@@ -14,7 +14,14 @@
     "payslips": "Bulletins de salaire",
     "vacation": "Demander des vacances",
     "chat": "Chat",
-    "training": "Vidéos de formation"
+    "training": "Vidéos de formation",
+    "notification": "Tester la notification"
+  },
+  "notification": {
+    "title": "Notification de Töpfer Salate",
+    "body": "Ceci est une notification de test de l'application Employés Töpfer.",
+    "notSupported": "Les notifications ne sont pas prises en charge par ce navigateur.",
+    "permissionDenied": "Les notifications ont été bloquées. Veuillez autoriser les notifications dans les paramètres du navigateur."
   },
   "language": {
     "title": "Choisir la langue",

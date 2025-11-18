@@ -8,6 +8,7 @@ import {
   Plane,
   MessageCircle,
   Video,
+  Bell,
 } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
 import "./Header.css";
@@ -45,12 +46,51 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
     }
   };
 
+  const handleNotificationTest = async () => {
+    setIsMenuOpen(false);
+
+    // Prüfe ob Notifications unterstützt werden
+    if (!("Notification" in window)) {
+      alert(t("notification.notSupported"));
+      return;
+    }
+
+    // Prüfe aktuelle Permission
+    if (Notification.permission === "granted") {
+      showNotification();
+    } else if (Notification.permission !== "denied") {
+      // Frage nach Berechtigung
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        showNotification();
+      } else {
+        alert(t("notification.permissionDenied"));
+      }
+    } else {
+      alert(t("notification.permissionDenied"));
+    }
+  };
+
+  const showNotification = () => {
+    new Notification(t("notification.title"), {
+      body: t("notification.body"),
+      icon: "/toepfer-pwa-prototyp/logo-192x192.png",
+      badge: "/toepfer-pwa-prototyp/logo-192x192.png",
+    });
+  };
+
   const menuItems = [
     { key: "schedule", icon: Calendar, label: t("menu.schedule") },
     { key: "payslips", icon: FileText, label: t("menu.payslips") },
     { key: "vacation", icon: Plane, label: t("menu.vacation") },
     { key: "chat", icon: MessageCircle, label: t("menu.chat") },
     { key: "training", icon: Video, label: t("menu.training") },
+    {
+      key: "notification",
+      icon: Bell,
+      label: t("menu.notification"),
+      isSpecial: true,
+    },
   ];
 
   return (
@@ -86,7 +126,11 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
                     <button
                       type="button"
                       className="menu-item"
-                      onClick={() => handleMenuItemClick(item.key)}
+                      onClick={() =>
+                        item.isSpecial
+                          ? handleNotificationTest()
+                          : handleMenuItemClick(item.key)
+                      }
                     >
                       <IconComponent size={20} />
                       <span>{item.label}</span>

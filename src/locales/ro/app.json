@@ -13,8 +13,15 @@
     "schedule": "Program de lucru",
     "payslips": "Fișe de salariu",
     "vacation": "Solicită concediu",
-    "chat": "Chat",
-    "training": "Videoclipuri de formare"
+    "chat": "Chat cu echipa",
+    "training": "Videoclipuri de formare",
+    "notification": "Testează notificarea"
+  },
+  "notification": {
+    "title": "Notificare de la Töpfer Salate",
+    "body": "Aceasta este o notificare de test din aplicația Angajați Töpfer.",
+    "notSupported": "Notificările nu sunt acceptate de acest browser.",
+    "permissionDenied": "Notificările au fost blocate. Vă rugăm să permiteți notificările în setările browserului."
   },
   "language": {
     "title": "Selectați limba",
