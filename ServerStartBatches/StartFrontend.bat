@@ -1,2 +1,2 @@
 cd..
-npm run dev
+npm run dev -- --force

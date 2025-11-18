@@ -77,22 +77,28 @@ function App() {
   };
 
   const handleInstallClick = async () => {
-    // Android, Desktop und Browser mit native Install Unterstützung
+    // Android, Desktop und Browser mit nativer Install-Unterstützung
     if (deferredPrompt) {
       await deferredPrompt.prompt();
       try {
         await deferredPrompt.userChoice;
       } catch {
-        // Ergebnis ist für dich hier nicht kritisch
+        // Ergebnis ist hier nicht kritisch
       }
       setDeferredPrompt(null);
       setShowInstallButton(false);
       return;
     }
 
-    // iOS Spezialfall, dort gibt es kein beforeinstallprompt
-    if (isIos && !isStandalone) {
-      setShowIosHint(true);
+    // iOS: Kein beforeinstallprompt. Unterschied Safari vs. Standalone.
+    if (isIos) {
+      if (!isStandalone) {
+        // In Safari den Install-Hinweis anzeigen
+        setShowIosHint(true);
+      } else {
+        // In der bereits installierten Web-App eine klare Meldung zeigen
+        alert(t("alreadyInstalled"));
+      }
       return;
     }
 
@@ -131,12 +137,13 @@ function App() {
                     type="button"
                     onClick={handleInstallClick}
                     className={`button-secondary ${
-                      showInstallButton || (isIos && !isStandalone)
-                        ? ""
-                        : "disabled"
+                      showInstallButton || isIos ? "" : "disabled"
                     }`}
+                    aria-disabled={!(showInstallButton || isIos)}
                   >
-                    {t("installApp")}
+                    {isIos && isStandalone
+                      ? t("alreadyInstalled")
+                      : t("installApp")}
                   </button>
                 </div>
               </section>

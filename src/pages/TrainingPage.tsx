@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Play } from "lucide-react";
 import trainingData from "../data/trainingData.json";
@@ -28,6 +28,19 @@ export default function TrainingPage() {
   const handleCloseVideo = () => {
     setSelectedVideo(null);
   };
+
+  // Prevent body scroll when video modal is open
+  useEffect(() => {
+    if (selectedVideo) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedVideo]);
 
   return (
     <div className="page-container">

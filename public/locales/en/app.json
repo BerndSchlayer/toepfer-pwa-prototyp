@@ -5,6 +5,7 @@
   "homepageTitle": "Home",
   "homepageText": "This prototype is being developed step by step. The application can be installed as an app on your device.",
   "installApp": "Install App",
+  "alreadyInstalled": "The app is already installed.",
   "exampleActionAlert": "A function could be started here later.",
   "installNotSupported": "Installation is not supported by this browser.",
   "iosHintText": "To install this app, open the Share icon in Safari and select \"Add to Home Screen\".",
