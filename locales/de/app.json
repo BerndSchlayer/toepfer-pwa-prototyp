@@ -14,7 +14,14 @@
     "payslips": "Lohnabrechnungen",
     "vacation": "Urlaub beantragen",
     "chat": "Chat",
-    "training": "Schulungsvideos"
+    "training": "Schulungsvideos",
+    "notification": "Benachrichtigung testen"
+  },
+  "notification": {
+    "title": "Benachrichtigung von Töpfer Salate",
+    "body": "Dies ist eine Test-Benachrichtigung der Töpfer Mitarbeiter App.",
+    "notSupported": "Benachrichtigungen werden von diesem Browser nicht unterstützt.",
+    "permissionDenied": "Benachrichtigungen wurden blockiert. Bitte erlauben Sie Benachrichtigungen in den Browser-Einstellungen."
   },
   "language": {
     "title": "Sprache wählen",
