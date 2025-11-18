@@ -52,5 +52,14 @@
     "payslip": "Payslip",
     "timesheet": "Timesheet",
     "download": "Download"
+  },
+  "vacation": {
+    "title": "Request Vacation",
+    "dateFrom": "Date from",
+    "dateTo": "Date to",
+    "remarks": "Remarks",
+    "submitButton": "Submit Vacation Request",
+    "sending": "Sending...",
+    "successMessage": "Your vacation request has been submitted successfully!"
   }
 }

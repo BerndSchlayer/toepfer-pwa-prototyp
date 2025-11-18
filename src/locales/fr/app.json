@@ -52,5 +52,14 @@
     "payslip": "Bulletin de paie",
     "timesheet": "Feuille de temps",
     "download": "Télécharger"
+  },
+  "vacation": {
+    "title": "Demander des vacances",
+    "dateFrom": "Date de début",
+    "dateTo": "Date de fin",
+    "remarks": "Remarques",
+    "submitButton": "Envoyer la demande de vacances",
+    "sending": "Envoi en cours...",
+    "successMessage": "Votre demande de vacances a été envoyée avec succès!"
   }
 }

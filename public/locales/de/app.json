@@ -52,5 +52,14 @@
     "payslip": "Lohnabrechnung",
     "timesheet": "Stundennachweis",
     "download": "Herunterladen"
+  },
+  "vacation": {
+    "title": "Urlaub beantragen",
+    "dateFrom": "Datum von",
+    "dateTo": "Datum bis",
+    "remarks": "Bemerkung",
+    "submitButton": "Urlaubsantrag senden",
+    "sending": "Wird gesendet...",
+    "successMessage": "Ihr Urlaubsantrag wurde erfolgreich gesendet!"
   }
 }

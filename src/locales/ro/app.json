@@ -52,5 +52,14 @@
     "payslip": "Fluturul de salariu",
     "timesheet": "Pontaj ore",
     "download": "Descarcă"
+  },
+  "vacation": {
+    "title": "Solicită concediu",
+    "dateFrom": "Data de la",
+    "dateTo": "Data până la",
+    "remarks": "Observații",
+    "submitButton": "Trimite cererea de concediu",
+    "sending": "Se trimite...",
+    "successMessage": "Cererea dvs. de concediu a fost trimisă cu succes!"
   }
 }
