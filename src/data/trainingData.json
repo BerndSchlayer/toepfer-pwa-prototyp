@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "id": "1",
+      "youtubeId": "vOzfm7-0XqE",
+      "titleKey": "training.videos.video1.title",
+      "descriptionKey": "training.videos.video1.description"
+    },
+    {
+      "id": "2",
+      "youtubeId": "TR0WCPmuaUo",
+      "titleKey": "training.videos.video2.title",
+      "descriptionKey": "training.videos.video2.description"
+    },
+    {
+      "id": "3",
+      "youtubeId": "5v-r60t7Ujk",
+      "titleKey": "training.videos.video3.title",
+      "descriptionKey": "training.videos.video3.description"
+    },
+    {
+      "id": "4",
+      "youtubeId": "grKLo-ZzTpg",
+      "titleKey": "training.videos.video4.title",
+      "descriptionKey": "training.videos.video4.description"
+    }
+  ]
+}

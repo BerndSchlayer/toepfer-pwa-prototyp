@@ -72,5 +72,26 @@
     "autoResponse": "Thank you for your message! We'll get back to you soon.",
     "cameraNotSupported": "Camera is not supported on this device.",
     "cameraError": "Error accessing the camera. Please check permissions."
+  },
+  "training": {
+    "title": "Training Videos",
+    "videos": {
+      "video1": {
+        "title": "Safety Instructions",
+        "description": "Important safety regulations and rules of conduct in the workplace. This video shows you all relevant safety aspects."
+      },
+      "video2": {
+        "title": "Machine Operation",
+        "description": "Step-by-step guide to correctly operating production machines. Learn the most important procedures."
+      },
+      "video3": {
+        "title": "Quality Control",
+        "description": "Learn how to check and document product quality. Standards and testing procedures in detail."
+      },
+      "video4": {
+        "title": "Hygiene and Cleanliness",
+        "description": "Hygiene standards in production and at the workplace. Important measures for a clean and safe workplace."
+      }
+    }
   }
 }

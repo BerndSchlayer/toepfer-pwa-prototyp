@@ -72,5 +72,26 @@
     "autoResponse": "Mulțumim pentru mesaj! Vă vom răspunde în curând.",
     "cameraNotSupported": "Camera nu este suportată pe acest dispozitiv.",
     "cameraError": "Eroare la accesarea camerei. Verificați permisiunile."
+  },
+  "training": {
+    "title": "Videoclipuri de formare",
+    "videos": {
+      "video1": {
+        "title": "Instrucțiuni de siguranță",
+        "description": "Reglementări importante de siguranță și reguli de conduită la locul de muncă. Acest videoclip vă arată toate aspectele relevante de siguranță."
+      },
+      "video2": {
+        "title": "Operarea mașinilor",
+        "description": "Ghid pas cu pas pentru operarea corectă a mașinilor de producție. Învățați cele mai importante proceduri."
+      },
+      "video3": {
+        "title": "Control de calitate",
+        "description": "Aflați cum să verificați și să documentați calitatea produselor. Standarde și proceduri de testare în detaliu."
+      },
+      "video4": {
+        "title": "Igienă și curățenie",
+        "description": "Standarde de igienă în producție și la locul de muncă. Măsuri importante pentru un loc de muncă curat și sigur."
+      }
+    }
   }
 }

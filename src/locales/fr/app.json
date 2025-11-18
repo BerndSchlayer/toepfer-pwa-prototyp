@@ -72,5 +72,26 @@
     "autoResponse": "Merci pour votre message! Nous vous répondrons bientôt.",
     "cameraNotSupported": "L'appareil photo n'est pas pris en charge sur cet appareil.",
     "cameraError": "Erreur d'accès à la caméra. Veuillez vérifier les autorisations."
+  },
+  "training": {
+    "title": "Vidéos de formation",
+    "videos": {
+      "video1": {
+        "title": "Instructions de sécurité",
+        "description": "Règlements de sécurité importants et règles de conduite sur le lieu de travail. Cette vidéo vous montre tous les aspects de sécurité pertinents."
+      },
+      "video2": {
+        "title": "Utilisation des machines",
+        "description": "Guide étape par étape pour utiliser correctement les machines de production. Apprenez les procédures les plus importantes."
+      },
+      "video3": {
+        "title": "Contrôle qualité",
+        "description": "Apprenez à vérifier et documenter la qualité des produits. Normes et procédures de test en détail."
+      },
+      "video4": {
+        "title": "Hygiène et propreté",
+        "description": "Normes d'hygiène dans la production et sur le lieu de travail. Mesures importantes pour un lieu de travail propre et sûr."
+      }
+    }
   }
 }

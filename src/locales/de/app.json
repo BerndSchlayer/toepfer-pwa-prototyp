@@ -72,5 +72,26 @@
     "autoResponse": "Danke für Ihre Nachricht! Wir melden uns bald.",
     "cameraNotSupported": "Kamera wird von diesem Gerät nicht unterstützt.",
     "cameraError": "Fehler beim Zugriff auf die Kamera. Bitte überprüfen Sie die Berechtigungen."
+  },
+  "training": {
+    "title": "Schulungsvideos",
+    "videos": {
+      "video1": {
+        "title": "Sicherheitseinweisung",
+        "description": "Wichtige Sicherheitsvorschriften und Verhaltensregeln am Arbeitsplatz. Dieses Video zeigt Ihnen alle relevanten Sicherheitsaspekte."
+      },
+      "video2": {
+        "title": "Bedienung der Maschinen",
+        "description": "Schritt-für-Schritt Anleitung zur korrekten Bedienung der Produktionsmaschinen. Lernen Sie die wichtigsten Handgriffe kennen."
+      },
+      "video3": {
+        "title": "Qualitätskontrolle",
+        "description": "Erfahren Sie, wie Sie die Qualität der Produkte überprüfen und dokumentieren. Standards und Prüfverfahren im Detail."
+      },
+      "video4": {
+        "title": "Hygiene und Sauberkeit",
+        "description": "Hygienestandards in der Produktion und am Arbeitsplatz. Wichtige Maßnahmen für einen sauberen und sicheren Arbeitsplatz."
+      }
+    }
   }
 }

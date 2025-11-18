@@ -7,6 +7,7 @@ import SchedulePage from "./pages/SchedulePage";
 import PayslipsPage from "./pages/PayslipsPage";
 import VacationPage from "./pages/VacationPage";
 import ChatPage from "./pages/ChatPage";
+import TrainingPage from "./pages/TrainingPage";
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -108,6 +109,7 @@ function App() {
           {currentPage === "payslips" && <PayslipsPage />}
           {currentPage === "vacation" && <VacationPage />}
           {currentPage === "chat" && <ChatPage />}
+          {currentPage === "training" && <TrainingPage />}
           {currentPage === "home" && (
             <>
               <section className="app-section">
