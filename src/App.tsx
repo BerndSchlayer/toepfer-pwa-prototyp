@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import LanguageSelector from "./components/LanguageSelector";
-import SchedulePage from "./pages/SchedulePage";
-import PayslipsPage from "./pages/PayslipsPage";
-import VacationPage from "./pages/VacationPage";
-import ChatPage from "./pages/ChatPage";
-import TrainingPage from "./pages/TrainingPage";
+const SchedulePage = lazy(() => import("./pages/SchedulePage"));
+const PayslipsPage = lazy(() => import("./pages/PayslipsPage"));
+const VacationPage = lazy(() => import("./pages/VacationPage"));
+const ChatPage = lazy(() => import("./pages/ChatPage"));
+const TrainingPage = lazy(() => import("./pages/TrainingPage"));
 import "./App.css";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -111,11 +111,19 @@ function App() {
       <div className="app-layout">
         {isDesktop && <Sidebar onMenuItemClick={handleMenuItemClick} />}
         <main className="app-main">
-          {currentPage === "schedule" && <SchedulePage />}
-          {currentPage === "payslips" && <PayslipsPage />}
-          {currentPage === "vacation" && <VacationPage />}
-          {currentPage === "chat" && <ChatPage />}
-          {currentPage === "training" && <TrainingPage />}
+          <Suspense
+            fallback={
+              <div className="route-suspense">
+                <div className="splash-spinner" />
+              </div>
+            }
+          >
+            {currentPage === "schedule" && <SchedulePage />}
+            {currentPage === "payslips" && <PayslipsPage />}
+            {currentPage === "vacation" && <VacationPage />}
+            {currentPage === "chat" && <ChatPage />}
+            {currentPage === "training" && <TrainingPage />}
+          </Suspense>
           {currentPage === "home" && (
             <>
               <section className="app-section">
