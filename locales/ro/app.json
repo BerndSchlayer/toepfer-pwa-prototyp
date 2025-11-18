@@ -43,5 +43,14 @@
       "saturday": "Sâmbătă",
       "sunday": "Duminică"
     }
+  },
+  "payslips": {
+    "title": "Fluturaşi de salariu",
+    "date": "Data",
+    "description": "Descriere",
+    "document": "Document",
+    "payslip": "Fluturul de salariu",
+    "timesheet": "Pontaj ore",
+    "download": "Descarcă"
   }
 }
