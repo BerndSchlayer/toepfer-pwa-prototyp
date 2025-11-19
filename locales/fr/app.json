@@ -40,6 +40,7 @@
     "dayOfWeek": "Jour",
     "date": "Date",
     "description": "Description",
+    "today": "Aujourd'hui",
     "free": "Libre",
     "vacation": "Vacances",
     "days": {
@@ -83,6 +84,8 @@
   },
   "training": {
     "title": "Vidéos de formation",
+    "closeButton": "Fermer",
+    "closeHint": "Appuyez sur ESC ou cliquez pour fermer",
     "videos": {
       "video1": {
         "title": "Instructions de sécurité",
