@@ -111,7 +111,9 @@ export default function PayslipsPage() {
       {activePdf && (
         <div className="pdf-overlay" role="dialog" aria-modal="true">
           <div className="pdf-toolbar">
-            <span className="pdf-title">{t("payslips.documentViewerTitle")}</span>
+            <span className="pdf-title">
+              {t("payslips.documentViewerTitle")}
+            </span>
             <button
               type="button"
               className="pdf-close-button"
