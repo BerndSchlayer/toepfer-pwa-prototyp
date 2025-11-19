@@ -17,62 +17,65 @@
   }
 }
 
+/* Sidebar Menu Styles */
+.sidebar-menu-list {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.sidebar-menu-list li {
+  border-bottom: 1px solid #f5f5f5;
+  list-style-type: none;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.sidebar-menu-item:hover {
+  background: #f5f5f5;
+  color: #4a7c59;
+}
+
+.sidebar-menu-item:active {
+  background: #e8f5e9;
+}
+
+.sidebar-menu-item svg {
+  color: #4a7c59;
+  flex-shrink: 0;
+}
+
+.sidebar-menu-item span {
+  flex: 1;
+  font-weight: 500;
+}
+
+.sidebar-language-selector {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: none;
+  list-style-type: none;
+}
+
 /* Hide sidebar in landscape mode on mobile devices */
 @media (max-height: 500px) and (orientation: landscape) {
   .desktop-sidebar {
     display: none !important;
-  }
-
-  .sidebar-menu-list {
-    list-style: none;
-    padding: 1rem 0;
-    margin: 0;
-  }
-
-  .sidebar-menu-list li {
-    border-bottom: 1px solid #f5f5f5;
-  }
-
-  .sidebar-menu-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: #333;
-    text-align: left;
-    transition: all 0.2s;
-  }
-
-  .sidebar-menu-item:hover {
-    background: #f5f5f5;
-    color: #4a7c59;
-  }
-
-  .sidebar-menu-item:active {
-    background: #e8f5e9;
-  }
-
-  .sidebar-menu-item svg {
-    color: #4a7c59;
-    flex-shrink: 0;
-  }
-
-  .sidebar-menu-item span {
-    flex: 1;
-    font-weight: 500;
-  }
-
-  .sidebar-language-selector {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    padding-left: 0;
-    padding-right: 0;
-    border-top: 2px solid #e0e0e0;
-    border-bottom: none;
   }
 }

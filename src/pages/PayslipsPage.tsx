@@ -69,8 +69,9 @@ export default function PayslipsPage() {
 
     // Erkenne die Umgebung
     const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
-                         (window.navigator as any).standalone === true;
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (window.navigator as any).standalone === true;
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     console.log("Opening PDF:", url);
@@ -82,7 +83,7 @@ export default function PayslipsPage() {
       if (isStandalone || !isMobile) {
         // iOS PWA oder Desktop: Öffne in neuem Tab/Fenster
         // Bei iOS PWA wird ein Overlay mit "Fertig"-Button angezeigt
-        const newWindow = window.open(url, '_blank');
+        const newWindow = window.open(url, "_blank");
         if (!newWindow) {
           // Fallback falls Popup blockiert wurde
           window.location.href = url;
