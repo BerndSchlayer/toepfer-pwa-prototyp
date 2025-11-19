@@ -62,7 +62,13 @@
     "timesheet": "Timesheet",
     "open": "Open",
     "closeDocument": "Close",
-    "documentViewerTitle": "PDF Document"
+    "documentViewerTitle": "PDF Document",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fitWidth": "Fit width",
+    "fitPage": "Fit page",
+    "loading": "Loading document...",
+    "loadError": "Failed to load document"
   },
   "vacation": {
     "title": "Request Vacation",

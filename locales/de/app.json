@@ -62,7 +62,13 @@
     "timesheet": "Stundennachweis",
     "open": "Öffnen",
     "closeDocument": "Schließen",
-    "documentViewerTitle": "PDF Dokument"
+    "documentViewerTitle": "PDF Dokument",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "fitWidth": "Breite anpassen",
+    "fitPage": "Seite anzeigen",
+    "loading": "Lade Dokument...",
+    "loadError": "Dokument konnte nicht geladen werden"
   },
   "vacation": {
     "title": "Urlaub beantragen",

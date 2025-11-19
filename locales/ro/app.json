@@ -62,7 +62,13 @@
     "timesheet": "Pontaj ore",
     "open": "Deschide",
     "closeDocument": "Închide",
-    "documentViewerTitle": "Document PDF"
+    "documentViewerTitle": "Document PDF",
+    "zoomIn": "Mărește",
+    "zoomOut": "Micșorează",
+    "fitWidth": "Potrivește lățimea",
+    "fitPage": "Potrivește pagina",
+    "loading": "Se încarcă documentul...",
+    "loadError": "Documentul nu a putut fi încărcat"
   },
   "vacation": {
     "title": "Solicită concediu",

@@ -62,7 +62,13 @@
     "timesheet": "Feuille de temps",
     "open": "Ouvrir",
     "closeDocument": "Fermer",
-    "documentViewerTitle": "Document PDF"
+    "documentViewerTitle": "Document PDF",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "fitWidth": "Ajuster largeur",
+    "fitPage": "Ajuster page",
+    "loading": "Chargement du document...",
+    "loadError": "Échec du chargement du document"
   },
   "vacation": {
     "title": "Demander des vacances",
