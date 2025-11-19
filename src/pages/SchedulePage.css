@@ -52,16 +52,16 @@
 .day-name {
   font-weight: 600;
   color: #4a7c59;
-  min-width: 120px;
+  white-space: nowrap;
 }
 
 .date-cell {
   color: #666;
-  min-width: 100px;
+  white-space: nowrap;
 }
 
 .description-cell {
-  min-width: 200px;
+  width: 100%;
 }
 
 .entry {
@@ -85,28 +85,51 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .week-navigation {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
   .week-label {
-    font-size: 1rem;
-    min-width: 120px;
+    font-size: 0.95rem;
+    min-width: auto;
+    white-space: nowrap;
   }
 
-  .day-name {
-    min-width: 90px;
-  }
-
-  .date-cell {
-    min-width: 85px;
+  .entry {
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
+  .week-navigation {
+    gap: 0.75rem;
+    padding: 0.625rem;
+  }
+
   .week-nav-button {
     width: 36px;
     height: 36px;
   }
 
+  .week-nav-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
   .week-label {
-    font-size: 0.9rem;
-    min-width: 100px;
+    font-size: 0.85rem;
+    min-width: auto;
+  }
+
+  .day-name {
+    font-size: 0.8rem;
+  }
+
+  .entry {
+    padding: 0.25rem 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 }

@@ -27,13 +27,14 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Table Styles */
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 100%;
 }
 
 .data-table thead {
@@ -74,12 +75,17 @@
     padding: 1rem;
   }
 
+  .page-header {
+    margin-bottom: 1.5rem;
+  }
+
   .page-title {
     font-size: 1.5rem;
   }
 
-  .data-table {
-    min-width: 100%; /* Tabelle passt sich der Breite an */
+  .table-container {
+    border-radius: 6px;
+    margin: 0 -0.5rem;
   }
 
   .data-table th,
@@ -87,54 +93,39 @@
     padding: 0.75rem 0.5rem;
     font-size: 0.85rem;
   }
-  
-  /* Spaltenbreiten für mobile Geräte */
-  .data-table th:nth-child(1),
-  .data-table td:nth-child(1) {
-    width: 25%; /* Datum */
-  }
-  
-  .data-table th:nth-child(2),
-  .data-table td:nth-child(2) {
-    width: 50%; /* Beschreibung */
-  }
-  
-  .data-table th:nth-child(3),
-  .data-table td:nth-child(3) {
-    width: 25%; /* Dokument */
-    padding: 0.75rem 0.25rem;
+
+  .data-table th {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  .data-table {
-    min-width: 100%;
+  .page-container {
+    padding: 0.75rem;
+  }
+
+  .page-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
   }
 
   .page-title {
     font-size: 1.25rem;
   }
+
+  .table-container {
+    border-radius: 4px;
+    margin: 0 -0.25rem;
+  }
   
   .data-table th,
   .data-table td {
-    padding: 0.5rem 0.25rem;
+    padding: 0.6rem 0.4rem;
     font-size: 0.8rem;
   }
-  
-  /* Engere Spalten für sehr kleine Bildschirme */
-  .data-table th:nth-child(1),
-  .data-table td:nth-child(1) {
-    width: 30%; /* Datum */
-  }
-  
-  .data-table th:nth-child(2),
-  .data-table td:nth-child(2) {
-    width: 45%; /* Beschreibung */
-  }
-  
-  .data-table th:nth-child(3),
-  .data-table td:nth-child(3) {
-    width: 25%; /* Dokument */
-    padding: 0.5rem 0.15rem;
+
+  .data-table th {
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
   }
 }

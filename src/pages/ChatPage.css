@@ -13,6 +13,8 @@
   overflow: hidden;
   height: 600px;
   max-height: 70vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Chat Tabs */
@@ -237,8 +239,11 @@
 /* Responsive */
 @media (max-width: 768px) {
   .chat-container {
-    height: 500px;
-    max-height: 60vh;
+    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
+    min-height: 500px;
+    border-radius: 0;
+    width: 100%;
   }
 
   .message {
@@ -276,6 +281,12 @@
 }
 
 @media (max-width: 480px) {
+  .chat-container {
+    height: calc(100vh - 180px);
+    max-height: calc(100vh - 180px);
+    min-height: 450px;
+  }
+
   .message {
     max-width: 90%;
   }
@@ -284,5 +295,13 @@
   .chat-send-button svg {
     width: 18px;
     height: 18px;
+  }
+
+  .messages-container {
+    padding: 0.75rem;
+  }
+
+  .chat-input-container {
+    padding: 0.5rem;
   }
 }
