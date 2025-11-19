@@ -97,7 +97,11 @@
     "takePhoto": "Prendre une photo",
     "autoResponse": "Merci pour votre message! Nous vous répondrons bientôt.",
     "cameraNotSupported": "L'appareil photo n'est pas pris en charge sur cet appareil.",
-    "cameraError": "Erreur d'accès à la caméra. Veuillez vérifier les autorisations."
+    "cameraError": "Erreur d'accès à la caméra. Veuillez vérifier les autorisations.",
+    "cameraModalTitle": "Aperçu de la caméra",
+    "cameraModalDescription": "Appuyez sur le bouton pour prendre une photo.",
+    "cameraCancel": "Annuler",
+    "cameraCapture": "Prendre une photo"
   },
   "training": {
     "title": "Vidéos de formation",

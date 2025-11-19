@@ -97,7 +97,11 @@
     "takePhoto": "Take photo",
     "autoResponse": "Thank you for your message! We'll get back to you soon.",
     "cameraNotSupported": "Camera is not supported on this device.",
-    "cameraError": "Error accessing the camera. Please check permissions."
+    "cameraError": "Error accessing the camera. Please check permissions.",
+    "cameraModalTitle": "Camera preview",
+    "cameraModalDescription": "Tap the button to take a photo.",
+    "cameraCancel": "Cancel",
+    "cameraCapture": "Capture photo"
   },
   "training": {
     "title": "Training Videos",

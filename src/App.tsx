@@ -49,16 +49,19 @@ function App() {
     const saved = localStorage.getItem("navigationMode");
     return (saved as NavigationMode) || "sidebar";
   });
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    if (currentPage !== "chat" && isKeyboardVisible) {
+      setIsKeyboardVisible(false);
+    }
+  }, [currentPage, isKeyboardVisible]);
 
   useEffect(() => {
     const ios = isIOS();
     const standalone = isInStandaloneMode();
     setIsIos(ios);
     setIsStandalone(standalone);
-
-    if (ios && !standalone) {
-      setShowIosHint(true);
-    }
 
     const handler = (event: Event) => {
       const e = event as BeforeInstallPromptEvent;
@@ -160,7 +163,9 @@ function App() {
             {currentPage === "schedule" && <SchedulePage />}
             {currentPage === "payslips" && <PayslipsPage />}
             {currentPage === "vacation" && <VacationPage />}
-            {currentPage === "chat" && <ChatPage />}
+            {currentPage === "chat" && (
+              <ChatPage onKeyboardVisibilityChange={setIsKeyboardVisible} />
+            )}
             {currentPage === "training" && <TrainingPage />}
           </Suspense>
           {currentPage === "home" && (
@@ -246,11 +251,16 @@ function App() {
         <BottomNavigation
           currentPage={currentPage}
           onMenuItemClick={handleMenuItemClick}
+          hidden={isKeyboardVisible}
         />
       )}
 
       {isIos && !isStandalone && showIosHint && (
-        <div className="ios-hint">
+        <div
+          className={`ios-hint ${
+            navigationMode === "bottom" ? "ios-hint-with-nav" : ""
+          }`}
+        >
           <p className="ios-hint-text">{t("iosHintText")}</p>
           <button
             type="button"

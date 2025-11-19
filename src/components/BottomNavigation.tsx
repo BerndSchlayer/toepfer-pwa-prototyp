@@ -5,11 +5,13 @@ import "./BottomNavigation.css";
 interface BottomNavigationProps {
   currentPage: string;
   onMenuItemClick?: (item: string) => void;
+  hidden?: boolean;
 }
 
 export default function BottomNavigation({
   currentPage,
   onMenuItemClick,
+  hidden,
 }: BottomNavigationProps) {
   const { t } = useTranslation("app");
 
@@ -28,7 +30,11 @@ export default function BottomNavigation({
   ];
 
   return (
-    <nav className="bottom-navigation">
+    <nav
+      className={`bottom-navigation ${
+        hidden ? "bottom-navigation-hidden" : ""
+      }`}
+    >
       {menuItems.map((item) => {
         const IconComponent = item.icon;
         const isActive = currentPage === item.key;

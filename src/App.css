@@ -109,30 +109,24 @@
   opacity: 0.6;
 }
 
+/* iOS install hint */
 .ios-hint {
   position: fixed;
   left: 1rem;
   right: 1rem;
-  bottom: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  bottom: calc(1rem + constant(safe-area-inset-bottom));
   padding: 1rem;
   border-radius: 0.75rem;
   background-color: #ffffff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
-.ios-hint-text {
-  margin: 0;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.button-hint-close {
-  margin-top: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 0.6rem;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-  background-color: #e5e7eb;
-  color: #111827;
+.ios-hint-with-nav {
+  bottom: calc(
+    1rem + 80px + env(safe-area-inset-bottom)
+  );
+  bottom: calc(
+    1rem + 80px + constant(safe-area-inset-bottom)
+  );
 }

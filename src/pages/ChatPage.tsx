@@ -15,7 +15,13 @@ interface Message {
 
 type ChatType = "supervisor" | "team";
 
-export default function ChatPage() {
+interface ChatPageProps {
+  onKeyboardVisibilityChange?: (visible: boolean) => void;
+}
+
+export default function ChatPage({
+  onKeyboardVisibilityChange,
+}: ChatPageProps) {
   const { t } = useTranslation("app");
   const [activeChat, setActiveChat] = useState<ChatType>("supervisor");
   const [message, setMessage] = useState("");
@@ -23,6 +29,9 @@ export default function ChatPage() {
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isCameraModalOpen, setIsCameraModalOpen] = useState(false);
+  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Mock-Daten für Demo-Zwecke
   useEffect(() => {
@@ -66,6 +75,21 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages]);
 
+  useEffect(() => {
+    if (videoRef.current && cameraStream) {
+      videoRef.current.srcObject = cameraStream;
+      videoRef.current.play().catch(() => {
+        /* Autoplay might be blocked; ignore */
+      });
+    }
+  }, [cameraStream]);
+
+  useEffect(() => {
+    return () => {
+      cameraStream?.getTracks().forEach((track) => track.stop());
+    };
+  }, [cameraStream]);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -83,7 +107,7 @@ export default function ChatPage() {
       timestamp: new Date(),
     };
 
-    setMessages([...messages, newMessage]);
+    setMessages((prev) => [...prev, newMessage]);
     setMessage("");
 
     // Simuliere Antwort nach 2 Sekunden
@@ -123,7 +147,7 @@ export default function ChatPage() {
         imageUrl: reader.result as string,
         timestamp: new Date(),
       };
-      setMessages([...messages, newMessage]);
+      setMessages((prev) => [...prev, newMessage]);
       setIsUploading(false);
     };
     reader.readAsDataURL(file);
@@ -131,52 +155,54 @@ export default function ChatPage() {
 
   const handleCameraCapture = async () => {
     try {
-      // Prüfe ob getUserMedia verfügbar ist
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         alert(t("chat.cameraNotSupported"));
         return;
       }
 
-      // Starte Kamera
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
       });
-
-      // Erstelle Video-Element für Vorschau
-      const video = document.createElement("video");
-      video.srcObject = stream;
-      video.play();
-
-      // Warte bis Video bereit ist
-      await new Promise((resolve) => {
-        video.onloadedmetadata = resolve;
-      });
-
-      // Erstelle Canvas und mache Screenshot
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const ctx = canvas.getContext("2d");
-      ctx?.drawImage(video, 0, 0);
-
-      // Stoppe Kamera
-      stream.getTracks().forEach((track) => track.stop());
-
-      // Konvertiere zu Bild
-      const imageUrl = canvas.toDataURL("image/jpeg");
-
-      const newMessage: Message = {
-        id: Date.now().toString(),
-        sender: "user",
-        text: "",
-        imageUrl,
-        timestamp: new Date(),
-      };
-      setMessages([...messages, newMessage]);
+      setCameraStream(stream);
+      setIsCameraModalOpen(true);
     } catch (error) {
       console.error("Camera error:", error);
       alert(t("chat.cameraError"));
     }
+  };
+
+  const closeCameraModal = () => {
+    cameraStream?.getTracks().forEach((track) => track.stop());
+    setCameraStream(null);
+    setIsCameraModalOpen(false);
+  };
+
+  const handleCapturePhoto = () => {
+    if (!videoRef.current) return;
+    const canvas = document.createElement("canvas");
+    canvas.width = videoRef.current.videoWidth;
+    canvas.height = videoRef.current.videoHeight;
+    const ctx = canvas.getContext("2d");
+    ctx?.drawImage(videoRef.current, 0, 0);
+
+    const imageUrl = canvas.toDataURL("image/jpeg");
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      sender: "user",
+      text: "",
+      imageUrl,
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, newMessage]);
+    closeCameraModal();
+  };
+
+  const handleInputFocus = () => {
+    onKeyboardVisibilityChange?.(true);
+  };
+
+  const handleInputBlur = () => {
+    onKeyboardVisibilityChange?.(false);
   };
 
   const formatTime = (date: Date): string => {
@@ -273,6 +299,8 @@ export default function ChatPage() {
             placeholder={t("chat.messagePlaceholder")}
             className="chat-input"
             disabled={isUploading}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
           />
           <button
             type="button"
@@ -284,6 +312,28 @@ export default function ChatPage() {
           </button>
         </div>
       </div>
+      {isCameraModalOpen && (
+        <div className="camera-modal" role="dialog" aria-modal="true">
+          <div className="camera-modal-content">
+            <h2>{t("chat.cameraModalTitle")}</h2>
+            <p>{t("chat.cameraModalDescription")}</p>
+            <video
+              ref={videoRef}
+              playsInline
+              autoPlay
+              className="camera-video"
+            />
+            <div className="camera-modal-actions">
+              <button type="button" onClick={closeCameraModal}>
+                {t("chat.cameraCancel")}
+              </button>
+              <button type="button" onClick={handleCapturePhoto}>
+                {t("chat.cameraCapture")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
