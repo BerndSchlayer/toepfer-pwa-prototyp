@@ -59,7 +59,10 @@
     "document": "Document",
     "payslip": "Fluturul de salariu",
     "timesheet": "Pontaj ore",
-    "download": "Descarcă"
+    "download": "Descarcă",
+    "open": "Deschide",
+    "closeDocument": "Închide",
+    "documentViewerTitle": "Document PDF"
   },
   "vacation": {
     "title": "Solicită concediu",

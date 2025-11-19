@@ -59,7 +59,10 @@
     "document": "Document",
     "payslip": "Bulletin de paie",
     "timesheet": "Feuille de temps",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "open": "Ouvrir",
+    "closeDocument": "Fermer",
+    "documentViewerTitle": "Document PDF"
   },
   "vacation": {
     "title": "Demander des vacances",

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FileText, Clock, Download } from "lucide-react";
 import payslipsData from "../data/payslipsData.json";
@@ -60,44 +60,8 @@ export default function PayslipsPage() {
     return `${baseUrl}${documentPath}`;
   };
 
-  const handleDocumentClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    documentPath: string
-  ) => {
-    e.preventDefault();
-    const url = getDocumentUrl(documentPath);
-
-    // Erkenne die Umgebung
-    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
-    const isStandalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
-      (window.navigator as any).standalone === true;
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    console.log("Opening PDF:", url);
-    console.log("Is iOS:", isIOS);
-    console.log("Is Standalone PWA:", isStandalone);
-    console.log("Is Mobile:", isMobile);
-
-    try {
-      if (isStandalone || !isMobile) {
-        // iOS PWA oder Desktop: Öffne in neuem Tab/Fenster
-        // Bei iOS PWA wird ein Overlay mit "Fertig"-Button angezeigt
-        const newWindow = window.open(url, "_blank");
-        if (!newWindow) {
-          // Fallback falls Popup blockiert wurde
-          window.location.href = url;
-        }
-      } else {
-        // Mobile Browser (hat Zurück-Button): Öffne im gleichen Tab
-        window.location.href = url;
-      }
-    } catch (error) {
-      console.error("Error opening PDF:", error);
-      // Fallback
-      window.location.href = url;
-    }
-  };
+  // Aktives PDF für Inline-Anzeige
+  const [activePdf, setActivePdf] = useState<string | null>(null);
 
   return (
     <div className="page-container">
@@ -129,23 +93,43 @@ export default function PayslipsPage() {
                   </div>
                 </td>
                 <td className="document-cell">
-                  <a
-                    href={getDocumentUrl(entry.document)}
-                    onClick={(e) => handleDocumentClick(e, entry.document)}
+                  <button
+                    type="button"
                     className="download-button"
-                    aria-label={t("payslips.download")}
+                    aria-label={t("payslips.open")}
+                    onClick={() => setActivePdf(entry.document)}
                   >
                     <Download size={18} />
-                    <span className="download-text">
-                      {t("payslips.download")}
-                    </span>
-                  </a>
+                    <span className="download-text">{t("payslips.open")}</span>
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {activePdf && (
+        <div className="pdf-overlay" role="dialog" aria-modal="true">
+          <div className="pdf-toolbar">
+            <span className="pdf-title">{t("payslips.documentViewerTitle")}</span>
+            <button
+              type="button"
+              className="pdf-close-button"
+              aria-label={t("payslips.closeDocument")}
+              onClick={() => setActivePdf(null)}
+            >
+              {t("payslips.closeDocument")}
+            </button>
+          </div>
+          <div className="pdf-frame-wrapper">
+            <iframe
+              title={t("payslips.documentViewerTitle")}
+              src={getDocumentUrl(activePdf)}
+              className="pdf-frame"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

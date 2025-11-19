@@ -59,7 +59,10 @@
     "document": "Document",
     "payslip": "Payslip",
     "timesheet": "Timesheet",
-    "download": "Download"
+    "download": "Download",
+    "open": "Open",
+    "closeDocument": "Close",
+    "documentViewerTitle": "PDF Document"
   },
   "vacation": {
     "title": "Request Vacation",

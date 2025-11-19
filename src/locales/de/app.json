@@ -59,7 +59,10 @@
     "document": "Dokument",
     "payslip": "Lohnabrechnung",
     "timesheet": "Stundennachweis",
-    "download": "Herunterladen"
+    "download": "Herunterladen",
+    "open": "Öffnen",
+    "closeDocument": "Schließen",
+    "documentViewerTitle": "PDF Dokument"
   },
   "vacation": {
     "title": "Urlaub beantragen",
