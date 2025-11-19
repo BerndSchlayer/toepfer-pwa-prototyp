@@ -55,23 +55,9 @@ export default function PayslipsPage() {
     return type === "payslip" ? t("payslips.payslip") : t("payslips.timesheet");
   };
 
-  const handleDownload = (documentPath: string) => {
+  const getDocumentUrl = (documentPath: string): string => {
     const baseUrl = import.meta.env.BASE_URL;
-    const url = `${baseUrl}${documentPath}`;
-
-    // iOS-kompatible Methode zum Öffnen von PDFs
-    // window.open() ohne '_blank' funktioniert auf iOS besser
-    const newWindow = window.open(url, "_blank");
-
-    // Fallback für den Fall, dass der Popup-Blocker aktiv ist
-    if (
-      !newWindow ||
-      newWindow.closed ||
-      typeof newWindow.closed === "undefined"
-    ) {
-      // Wenn Popup blockiert wurde, öffne in gleichem Tab
-      window.location.href = url;
-    }
+    return `${baseUrl}${documentPath}`;
   };
 
   return (
@@ -104,17 +90,18 @@ export default function PayslipsPage() {
                   </div>
                 </td>
                 <td className="document-cell">
-                  <button
-                    type="button"
+                  <a
+                    href={getDocumentUrl(entry.document)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="download-button"
-                    onClick={() => handleDownload(entry.document)}
                     aria-label={t("payslips.download")}
                   >
                     <Download size={18} />
                     <span className="download-text">
                       {t("payslips.download")}
                     </span>
-                  </button>
+                  </a>
                 </td>
               </tr>
             ))}

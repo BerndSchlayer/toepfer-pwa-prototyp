@@ -15,6 +15,8 @@
   max-height: 70vh;
   width: 100%;
   box-sizing: border-box;
+  /* iOS Keyboard Fix */
+  position: relative;
 }
 
 /* Chat Tabs */
@@ -198,6 +200,10 @@
   outline: none;
   transition: all 0.2s ease;
   font-family: inherit;
+  /* iOS-spezifische Fixes */
+  font-size: 16px; /* Verhindert Auto-Zoom auf iOS */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .chat-input:focus {
@@ -239,11 +245,15 @@
 /* Responsive */
 @media (max-width: 768px) {
   .chat-container {
-    height: calc(100vh - 200px);
-    max-height: calc(100vh - 200px);
+    /* Verwende dvh (dynamic viewport height) für iOS Keyboard Support */
+    height: calc(100dvh - 200px);
+    max-height: calc(100dvh - 200px);
     min-height: 500px;
     border-radius: 0;
     width: 100%;
+    /* Fallback für ältere Browser */
+    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
   }
 
   .message {
@@ -275,16 +285,48 @@
   }
 
   .chat-input {
-    font-size: 0.9rem;
+    font-size: 16px; /* Mindestens 16px für iOS */
     padding: 0.625rem 0.875rem;
+  }
+}
+
+/* iOS-spezifische Fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Nur für iOS Safari */
+  .chat-input-container {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+  
+  .chat-container {
+    /* Verwende fixed positioning für iOS */
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 769px) {
+    .chat-container {
+      position: relative;
+      bottom: auto;
+    }
   }
 }
 
 @media (max-width: 480px) {
   .chat-container {
+    /* Verwende dvh für iOS */
+    height: calc(100dvh - 180px);
+    max-height: calc(100dvh - 180px);
+    min-height: 450px;
+    /* Fallback */
     height: calc(100vh - 180px);
     max-height: calc(100vh - 180px);
-    min-height: 450px;
   }
 
   .message {
