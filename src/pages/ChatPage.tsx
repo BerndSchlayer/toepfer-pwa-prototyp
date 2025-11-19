@@ -66,33 +66,11 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages]);
 
-  // Scroll zu letzter Nachricht wenn Input-Feld fokussiert wird (iOS Keyboard)
-  useEffect(() => {
-    const inputElement = document.querySelector(
-      ".chat-input"
-    ) as HTMLInputElement;
-
-    if (!inputElement) return;
-
-    const handleFocus = () => {
-      // Warte bis Tastatur vollständig eingeblendet ist
-      setTimeout(() => {
-        messagesEndRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-        });
-      }, 300);
-    };
-
-    inputElement.addEventListener("focus", handleFocus);
-
-    return () => {
-      inputElement.removeEventListener("focus", handleFocus);
-    };
-  }, []);
-
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
   };
 
   const handleSendMessage = () => {

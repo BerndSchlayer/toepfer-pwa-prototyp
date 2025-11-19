@@ -217,6 +217,11 @@
     grid-template-rows: auto auto auto;
   }
 
+  /* Entferne margin-top im Landscape-Modus */
+  .form-group:first-child {
+    margin-top: 0;
+  }
+
   /* Date fields side by side - iOS Safari fix */
   .form-group:nth-child(1),
   .form-group:nth-child(2) {

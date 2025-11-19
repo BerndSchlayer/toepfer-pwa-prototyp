@@ -310,38 +310,7 @@
   }
 }
 
-/* iOS-spezifische Fixes */
-@supports (-webkit-touch-callout: none) {
-  /* Nur für iOS Safari */
-  .chat-input-container {
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
-    background: white;
-  }
-  
-  @media (max-width: 768px) {
-    .chat-page-container {
-      padding: 0;
-    }
-    
-    .chat-page-container .page-header {
-      padding: 0 1rem;
-    }
-    
-    .chat-container {
-      width: 100vw;
-      max-width: 100vw;
-      border-radius: 0;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .chat-page-container .page-header {
-      padding: 0 0.75rem;
-    }
-  }
-}
+
 
 @media (max-width: 480px) {
   .chat-page-container {
