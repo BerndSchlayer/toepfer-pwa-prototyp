@@ -60,6 +60,27 @@ export default function PayslipsPage() {
     return `${baseUrl}${documentPath}`;
   };
 
+  const handleDocumentClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    documentPath: string
+  ) => {
+    e.preventDefault();
+    const url = getDocumentUrl(documentPath);
+
+    console.log("Opening PDF:", url);
+    console.log("User Agent:", navigator.userAgent);
+    console.log("Is Standalone:", (window.navigator as any).standalone);
+
+    // Für iOS PWA: Verwende window.location.href
+    // Das ist die zuverlässigste Methode
+    try {
+      window.location.href = url;
+    } catch (error) {
+      console.error("Error opening PDF:", error);
+      alert(`Fehler beim Öffnen: ${url}`);
+    }
+  };
+
   return (
     <div className="page-container">
       <header className="page-header">
@@ -92,6 +113,7 @@ export default function PayslipsPage() {
                 <td className="document-cell">
                   <a
                     href={getDocumentUrl(entry.document)}
+                    onClick={(e) => handleDocumentClick(e, entry.document)}
                     className="download-button"
                     aria-label={t("payslips.download")}
                   >
