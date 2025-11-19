@@ -41,6 +41,7 @@
     "description": "Description",
     "free": "Free",
     "vacation": "Vacation",
+    "today": "Today",
     "days": {
       "monday": "Monday",
       "tuesday": "Tuesday",

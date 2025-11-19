@@ -15,6 +15,13 @@
     overflow-y: auto;
     flex-shrink: 0;
   }
+}
+
+/* Hide sidebar in landscape mode on mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  .desktop-sidebar {
+    display: none !important;
+  }
 
   .sidebar-menu-list {
     list-style: none;

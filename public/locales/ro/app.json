@@ -40,6 +40,7 @@
     "dayOfWeek": "Zi",
     "date": "Data",
     "description": "Descriere",
+    "today": "Astăzi",
     "free": "Liber",
     "vacation": "Concediu",
     "days": {
@@ -83,6 +84,8 @@
   },
   "training": {
     "title": "Videoclipuri de formare",
+    "closeButton": "Închide",
+    "closeHint": "Apasă ESC sau fă clic pentru a închide",
     "videos": {
       "video1": {
         "title": "Instrucțiuni de siguranță",

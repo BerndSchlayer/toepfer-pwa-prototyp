@@ -21,12 +21,22 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
   const { t } = useTranslation("app");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [isLandscape, setIsLandscape] = useState(
+    window.innerHeight <= 500 &&
+      window.matchMedia("(orientation: landscape)").matches
+  );
 
   useEffect(() => {
     const handleResize = () => {
       const desktop = window.innerWidth >= 768;
+      const landscape =
+        window.innerHeight <= 500 &&
+        window.matchMedia("(orientation: landscape)").matches;
       setIsDesktop(desktop);
-      if (desktop) {
+      setIsLandscape(landscape);
+
+      // Close menu when switching to desktop mode (but not in landscape)
+      if (desktop && !landscape) {
         setIsMenuOpen(false);
       }
     };
@@ -101,7 +111,7 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
             <div className="logo-circle">T</div>
           </div>
           <h1 className="header-title">{t("appTitle")}</h1>
-          {!isDesktop && (
+          {(!isDesktop || isLandscape) && (
             <button
               type="button"
               className="hamburger-button"
@@ -114,7 +124,7 @@ export default function Header({ onMenuItemClick }: HeaderProps) {
         </div>
       </header>
 
-      {!isDesktop && isMenuOpen && (
+      {(!isDesktop || isLandscape) && isMenuOpen && (
         <>
           <div className="menu-overlay" onClick={toggleMenu} />
           <nav className="slide-menu">

@@ -1,6 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  MapPin,
+  Home,
+  Umbrella,
+} from "lucide-react";
 import scheduleData from "../data/scheduleData.json";
 import "./CommonPage.css";
 import "./SchedulePage.css";
@@ -118,14 +125,52 @@ export default function SchedulePage() {
     return `${day}.${month}.${year}`;
   };
 
-  const renderEntry = (entry: ScheduleEntry): string => {
-    if (entry.type === "free") {
-      return t("schedule.free");
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const swipeThreshold = 50;
+    const diff = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && currentWeekIndex < weeks.length - 1) {
+        goToNextWeek();
+      } else if (diff < 0 && currentWeekIndex > 0) {
+        goToPreviousWeek();
+      }
     }
-    if (entry.type === "vacation") {
-      return t("schedule.vacation");
+  };
+
+  const isToday = (dateString: string): boolean => {
+    const today = new Date();
+    const date = new Date(dateString);
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
+
+  const getCardClass = (day: (typeof currentWeek.days)[0]): string => {
+    const classes = ["schedule-card"];
+
+    if (isToday(day.date)) {
+      classes.push("is-today");
+    } else if (day.entries.some((e) => e.type === "vacation")) {
+      classes.push("is-vacation");
+    } else if (day.entries.every((e) => e.type === "free")) {
+      classes.push("is-free");
     }
-    return `${entry.timeFrom} - ${entry.timeTo}: ${entry.department}`;
+
+    return classes.join(" ");
   };
 
   return (
@@ -134,7 +179,12 @@ export default function SchedulePage() {
         <h1 className="page-title">{t("schedule.title")}</h1>
       </header>
 
-      <div className="week-navigation">
+      <div
+        className="week-navigation"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <button
           type="button"
           onClick={goToPreviousWeek}
@@ -159,33 +209,52 @@ export default function SchedulePage() {
         </button>
       </div>
 
-      <div className="table-container">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>{t("schedule.dayOfWeek")}</th>
-              <th>{t("schedule.date")}</th>
-              <th>{t("schedule.description")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentWeek.days.map((day) => (
-              <tr key={day.date}>
-                <td className="day-name">
+      <div className="schedule-cards">
+        {currentWeek.days.map((day) => (
+          <div key={day.date} className={getCardClass(day)}>
+            <div className="card-header">
+              <div className="card-day">
+                <span className="day-name-card">
                   {t(`schedule.days.${day.dayOfWeek}`)}
-                </td>
-                <td className="date-cell">{formatDate(day.date)}</td>
-                <td className="description-cell">
-                  {day.entries.map((entry, index) => (
-                    <div key={index} className={`entry entry-${entry.type}`}>
-                      {renderEntry(entry)}
-                    </div>
-                  ))}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </span>
+                <span className="date-badge">{formatDate(day.date)}</span>
+              </div>
+              {isToday(day.date) && (
+                <span className="today-badge">{t("schedule.today")}</span>
+              )}
+            </div>
+            <div className="card-content">
+              {day.entries.map((entry, index) => (
+                <div key={index} className="schedule-entry">
+                  {entry.type === "work" ? (
+                    <>
+                      <Clock size={18} className="entry-icon" />
+                      <span className="entry-time">
+                        {entry.timeFrom} - {entry.timeTo}
+                      </span>
+                      <MapPin size={16} className="entry-icon" />
+                      <span className="entry-location">{entry.department}</span>
+                    </>
+                  ) : entry.type === "free" ? (
+                    <>
+                      <Home size={18} className="entry-icon" />
+                      <span className="entry-status status-free">
+                        {t("schedule.free")}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Umbrella size={18} className="entry-icon" />
+                      <span className="entry-status status-vacation">
+                        {t("schedule.vacation")}
+                      </span>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -41,6 +41,7 @@
     "description": "Beschreibung",
     "free": "Frei",
     "vacation": "Urlaub",
+    "today": "Heute",
     "days": {
       "monday": "Montag",
       "tuesday": "Dienstag",

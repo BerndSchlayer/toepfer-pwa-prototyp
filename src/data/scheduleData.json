@@ -33,18 +33,6 @@
           "entries": [
             { "type": "work", "timeFrom": "09:00", "timeTo": "14:00", "department": "E" }
           ]
-        },
-        {
-          "dayOfWeek": "saturday",
-          "entries": [
-            { "type": "free" }
-          ]
-        },
-        {
-          "dayOfWeek": "sunday",
-          "entries": [
-            { "type": "free" }
-          ]
         }
       ]
     },
@@ -58,7 +46,7 @@
             { "type": "work", "timeFrom": "12:00", "timeTo": "16:00", "department": "Halle 2" }
           ]
         },
-        {
+         {
           "dayOfWeek": "tuesday",
           "entries": [
             { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "E" }
@@ -80,18 +68,6 @@
           "dayOfWeek": "friday",
           "entries": [
             { "type": "vacation" }
-          ]
-        },
-        {
-          "dayOfWeek": "saturday",
-          "entries": [
-            { "type": "free" }
-          ]
-        },
-        {
-          "dayOfWeek": "sunday",
-          "entries": [
-            { "type": "free" }
           ]
         }
       ]
@@ -133,13 +109,7 @@
         {
           "dayOfWeek": "saturday",
           "entries": [
-            { "type": "free" }
-          ]
-        },
-        {
-          "dayOfWeek": "sunday",
-          "entries": [
-            { "type": "free" }
+            { "type": "work", "timeFrom": "07:00", "timeTo": "12:00", "department": "Halle 3" }
           ]
         }
       ]
@@ -182,13 +152,7 @@
         {
           "dayOfWeek": "saturday",
           "entries": [
-            { "type": "free" }
-          ]
-        },
-        {
-          "dayOfWeek": "sunday",
-          "entries": [
-            { "type": "free" }
+            { "type": "work", "timeFrom": "07:00", "timeTo": "12:00", "department": "Halle 3" }
           ]
         }
       ]

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import trainingData from "../data/trainingData.json";
 import "./CommonPage.css";
 import "./TrainingPage.css";
@@ -42,6 +42,20 @@ export default function TrainingPage() {
     };
   }, [selectedVideo]);
 
+  // Close video on ESC key press
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && selectedVideo) {
+        handleCloseVideo();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [selectedVideo]);
+
   return (
     <div className="page-container">
       <header className="page-header">
@@ -76,17 +90,19 @@ export default function TrainingPage() {
       {/* Video Player Modal */}
       {selectedVideo && (
         <div className="video-modal" onClick={handleCloseVideo}>
+          <button
+            type="button"
+            className="video-modal-close"
+            aria-label={t("training.closeButton")}
+            onClick={handleCloseVideo}
+          >
+            <X size={28} strokeWidth={3} />
+          </button>
+          <div className="video-modal-hint">{t("training.closeHint")}</div>
           <div
             className="video-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              type="button"
-              className="video-modal-close"
-              onClick={handleCloseVideo}
-            >
-              ×
-            </button>
             <div className="video-player-container">
               <iframe
                 width="100%"

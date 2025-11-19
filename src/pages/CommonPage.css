@@ -129,3 +129,35 @@
     letter-spacing: 0.3px;
   }
 }
+
+/* Landscape mode optimizations for all pages */
+@media (max-height: 500px) and (orientation: landscape) {
+  .page-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .page-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 2px;
+  }
+
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  .table-container {
+    margin: 0;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .data-table th {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.4rem;
+  }
+}

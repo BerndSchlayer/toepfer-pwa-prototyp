@@ -172,3 +172,55 @@
     padding: 0.875rem 1rem;
   }
 }
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .vacation-form-container {
+    padding: 0.75rem 1rem;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .vacation-form {
+    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .form-group:nth-child(1),
+  .form-group:nth-child(2) {
+    /* Date fields side by side */
+  }
+
+  .form-group:nth-child(3) {
+    /* Remarks field spans both columns */
+    grid-column: 1 / -1;
+  }
+
+  .form-group:nth-child(3) .form-textarea {
+    min-height: 60px;
+    max-height: 80px;
+  }
+
+  .submit-button {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.625rem 0.375rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-input:focus + .form-label,
+  .form-input:not(:placeholder-shown) + .form-label {
+    font-size: 0.7rem;
+  }
+}

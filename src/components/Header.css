@@ -179,3 +179,28 @@
     font-size: 1.3rem;
   }
 }
+
+/* Show hamburger menu in landscape mode even on larger screens */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hamburger-button {
+    display: flex !important;
+  }
+
+  .header-content {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .logo-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .slide-menu {
+    top: 41px;
+  }
+}
