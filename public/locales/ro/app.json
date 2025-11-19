@@ -11,12 +11,14 @@
   "iosHintText": "Pentru a instala această aplicație, deschideți iconița Partajare în Safari și selectați \"Adaugă pe ecranul de pornire\".",
   "closeHint": "Închide indicația",
   "menu": {
+    "home": "Pagina principală",
     "schedule": "Program de lucru",
     "payslips": "Fișe de salariu",
     "vacation": "Solicită concediu",
     "chat": "Chat cu echipa",
     "training": "Videoclipuri de formare",
-    "notification": "Testează notificarea"
+    "notification": "Testează notificarea",
+    "more": "Mai mult"
   },
   "notification": {
     "title": "Notificare de la Töpfer Salate",
@@ -27,6 +29,13 @@
   "language": {
     "title": "Selectați limba",
     "description": "Alegeți limba preferată pentru aplicație. Selecția dvs. va fi salvată automat."
+  },
+  "navigation": {
+    "title": "Alegeți navigația",
+    "description": "Selectați stilul de navigare preferat. Această setare este în scopuri de demonstrație și va fi salvată automat.",
+    "sidebar": "Bară laterală (Desktop)",
+    "top": "Sus (Orizontal)",
+    "bottom": "Jos (Mobil)"
   },
   "install": {
     "title": "Instalare",

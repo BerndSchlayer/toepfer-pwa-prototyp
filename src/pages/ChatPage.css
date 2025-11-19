@@ -163,6 +163,10 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
+  /* Kompatibilität mit Bottom Navigation: */
+  /* Die Chat-Input-Area bleibt am unteren Rand des Chat-Containers */
+  /* Die Bottom Navigation ist außerhalb des Chat-Containers fixiert */
+  /* Viewport Height wird automatisch angepasst wenn Tastatur erscheint */
 }
 
 .chat-action-button {

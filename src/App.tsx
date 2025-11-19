@@ -2,6 +2,8 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import TopNavigation from "./components/TopNavigation";
+import BottomNavigation from "./components/BottomNavigation";
 import LanguageSelector from "./components/LanguageSelector";
 const SchedulePage = lazy(() => import("./pages/SchedulePage"));
 const PayslipsPage = lazy(() => import("./pages/PayslipsPage"));
@@ -31,6 +33,8 @@ function isInStandaloneMode(): boolean {
   return displayModeStandalone || iosStandalone;
 }
 
+type NavigationMode = "sidebar" | "top" | "bottom";
+
 function App() {
   const { t } = useTranslation("app");
   const [deferredPrompt, setDeferredPrompt] =
@@ -41,6 +45,10 @@ function App() {
   const [showIosHint, setShowIosHint] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
   const [currentPage, setCurrentPage] = useState<string>("home");
+  const [navigationMode, setNavigationMode] = useState<NavigationMode>(() => {
+    const saved = localStorage.getItem("navigationMode");
+    return (saved as NavigationMode) || "sidebar";
+  });
 
   useEffect(() => {
     const ios = isIOS();
@@ -72,8 +80,17 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("navigationMode", navigationMode);
+  }, [navigationMode]);
+
   const handleMenuItemClick = (item: string) => {
     setCurrentPage(item);
+  };
+
+  const handleNavigationModeChange = (mode: NavigationMode) => {
+    setNavigationMode(mode);
+    setCurrentPage("home");
   };
 
   const handleInstallClick = async () => {
@@ -107,10 +124,28 @@ function App() {
 
   return (
     <div className="app-container">
-      <Header onMenuItemClick={handleMenuItemClick} />
-      <div className="app-layout">
-        {isDesktop && <Sidebar onMenuItemClick={handleMenuItemClick} />}
-        <main className="app-main">
+      {navigationMode === "sidebar" && (
+        <Header onMenuItemClick={handleMenuItemClick} />
+      )}
+      {navigationMode === "top" && (
+        <TopNavigation
+          currentPage={currentPage}
+          onMenuItemClick={handleMenuItemClick}
+        />
+      )}
+      <div
+        className={`app-layout ${
+          navigationMode === "sidebar" ? "with-sidebar" : ""
+        }`}
+      >
+        {isDesktop && navigationMode === "sidebar" && (
+          <Sidebar onMenuItemClick={handleMenuItemClick} />
+        )}
+        <main
+          className={`app-main ${
+            navigationMode === "bottom" ? "with-bottom-nav" : ""
+          }`}
+        >
           <Suspense
             fallback={
               <div className="route-suspense">
@@ -138,6 +173,42 @@ function App() {
               </section>
 
               <section className="app-section">
+                <h2 className="app-section-title">{t("navigation.title")}</h2>
+                <p className="app-section-text">
+                  {t("navigation.description")}
+                </p>
+                <div className="button-container">
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationModeChange("sidebar")}
+                    className={`button-secondary ${
+                      navigationMode === "sidebar" ? "active" : ""
+                    }`}
+                  >
+                    {t("navigation.sidebar")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationModeChange("top")}
+                    className={`button-secondary ${
+                      navigationMode === "top" ? "active" : ""
+                    }`}
+                  >
+                    {t("navigation.top")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleNavigationModeChange("bottom")}
+                    className={`button-secondary ${
+                      navigationMode === "bottom" ? "active" : ""
+                    }`}
+                  >
+                    {t("navigation.bottom")}
+                  </button>
+                </div>
+              </section>
+
+              <section className="app-section">
                 <h2 className="app-section-title">{t("install.title")}</h2>
                 <p className="app-section-text">{t("install.description")}</p>
                 <div className="button-container">
@@ -159,6 +230,12 @@ function App() {
           )}
         </main>
       </div>
+      {navigationMode === "bottom" && (
+        <BottomNavigation
+          currentPage={currentPage}
+          onMenuItemClick={handleMenuItemClick}
+        />
+      )}
 
       {isIos && !isStandalone && showIosHint && (
         <div className="ios-hint">

@@ -73,6 +73,17 @@
   font-weight: 500;
   background-color: #ffffff;
   color: #2563eb;
+  transition: all 0.2s ease;
+}
+
+.button-secondary:hover {
+  background-color: #eff6ff;
+}
+
+.button-secondary.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .button-secondary.disabled {
