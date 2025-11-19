@@ -59,21 +59,19 @@ export default function PayslipsPage() {
     const baseUrl = import.meta.env.BASE_URL;
     const url = `${baseUrl}${documentPath}`;
 
-    // Erstelle einen temporären Link und klicke ihn programmatisch
-    // Dies funktioniert besser auf iOS als window.open()
-    const link = window.document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
+    // iOS-kompatible Methode zum Öffnen von PDFs
+    // window.open() ohne '_blank' funktioniert auf iOS besser
+    const newWindow = window.open(url, "_blank");
 
-    // Füge den Link temporär zum DOM hinzu
-    window.document.body.appendChild(link);
-    link.click();
-
-    // Entferne den Link nach kurzer Zeit wieder
-    setTimeout(() => {
-      window.document.body.removeChild(link);
-    }, 100);
+    // Fallback für den Fall, dass der Popup-Blocker aktiv ist
+    if (
+      !newWindow ||
+      newWindow.closed ||
+      typeof newWindow.closed === "undefined"
+    ) {
+      // Wenn Popup blockiert wurde, öffne in gleichem Tab
+      window.location.href = url;
+    }
   };
 
   return (
