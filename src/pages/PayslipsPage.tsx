@@ -80,12 +80,6 @@ export default function PayslipsPage() {
         setScale(1);
         return;
       }
-      console.log(
-        "🔄 PDF Render Start - scale:",
-        scale,
-        "autoFitWidth:",
-        autoFitWidth
-      );
       const currentRender = ++renderCountRef.current;
       setPdfError(null);
       setPdfLoading(true);
@@ -119,19 +113,11 @@ export default function PayslipsPage() {
             0.3,
             Math.min(3, containerWidth / unscaledViewport.width)
           );
-          console.log(
-            "📏 Auto-Fit-Width calculated:",
-            calculatedScale,
-            "containerWidth:",
-            containerWidth
-          );
           // Wichtig: autoFitWidth deaktivieren nach Berechnung, damit manuelle Zooms nicht überschrieben werden
           setAutoFitWidth(false);
           if (Math.abs(calculatedScale - scale) > 0.01) {
             setScale(calculatedScale);
           }
-        } else {
-          console.log("🎯 Using manual scale:", calculatedScale);
         }
 
         for (let pageNum = 1; pageNum <= pageCount; pageNum++) {
@@ -191,32 +177,22 @@ export default function PayslipsPage() {
   }, [activePdf]);
 
   const handleZoomIn = () => {
-    console.log("🔍 Zoom In clicked");
     setAutoFitWidth(false);
     setScale((s) => {
       const newScale = s * 1.15;
-      console.log("➕ Zoom In: old scale:", s, "new scale:", newScale);
       return newScale;
     });
   };
   const handleZoomOut = () => {
-    console.log("🔍 Zoom Out clicked");
     setAutoFitWidth(false);
     setScale((s) => {
       const newScale = Math.max(0.2, s / 1.15);
-      console.log("➖ Zoom Out: old scale:", s, "new scale:", newScale);
       return newScale;
     });
   };
   const handleFitWidth = () => {
-    console.log("📐 Fit Width clicked");
     setAutoFitWidth(true);
     setScale(1);
-  };
-  const handleFitPage = () => {
-    console.log("📄 Fit Page clicked");
-    setAutoFitWidth(false);
-    setScale(0.9);
   };
 
   return (
@@ -294,14 +270,6 @@ export default function PayslipsPage() {
                 aria-label={t("payslips.fitWidth")}
               >
                 {t("payslips.fitWidth")}
-              </button>
-              <button
-                type="button"
-                className="pdf-control-btn"
-                onClick={handleFitPage}
-                aria-label={t("payslips.fitPage")}
-              >
-                {t("payslips.fitPage")}
               </button>
               <button
                 type="button"
