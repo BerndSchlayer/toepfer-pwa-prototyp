@@ -92,8 +92,6 @@ export default function PayslipsPage() {
                 <td className="document-cell">
                   <a
                     href={getDocumentUrl(entry.document)}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="download-button"
                     aria-label={t("payslips.download")}
                   >

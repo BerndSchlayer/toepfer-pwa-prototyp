@@ -38,6 +38,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(74, 124, 89, 0.3);
+  text-decoration: none;
+  /* iOS-spezifische Fixes */
+  -webkit-tap-highlight-color: rgba(74, 124, 89, 0.2);
+  -webkit-touch-callout: default;
+  user-select: none;
 }
 
 .download-button:hover {
