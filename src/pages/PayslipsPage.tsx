@@ -67,17 +67,34 @@ export default function PayslipsPage() {
     e.preventDefault();
     const url = getDocumentUrl(documentPath);
 
-    console.log("Opening PDF:", url);
-    console.log("User Agent:", navigator.userAgent);
-    console.log("Is Standalone:", (window.navigator as any).standalone);
+    // Erkenne die Umgebung
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                         (window.navigator as any).standalone === true;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    // Für iOS PWA: Verwende window.location.href
-    // Das ist die zuverlässigste Methode
+    console.log("Opening PDF:", url);
+    console.log("Is iOS:", isIOS);
+    console.log("Is Standalone PWA:", isStandalone);
+    console.log("Is Mobile:", isMobile);
+
     try {
-      window.location.href = url;
+      if (isStandalone || !isMobile) {
+        // iOS PWA oder Desktop: Öffne in neuem Tab/Fenster
+        // Bei iOS PWA wird ein Overlay mit "Fertig"-Button angezeigt
+        const newWindow = window.open(url, '_blank');
+        if (!newWindow) {
+          // Fallback falls Popup blockiert wurde
+          window.location.href = url;
+        }
+      } else {
+        // Mobile Browser (hat Zurück-Button): Öffne im gleichen Tab
+        window.location.href = url;
+      }
     } catch (error) {
       console.error("Error opening PDF:", error);
-      alert(`Fehler beim Öffnen: ${url}`);
+      // Fallback
+      window.location.href = url;
     }
   };
 
