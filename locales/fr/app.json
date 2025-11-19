@@ -11,12 +11,14 @@
   "iosHintText": "Pour installer cette application, ouvrez l'icône Partager dans Safari et sélectionnez \"Sur l'écran d'accueil\".",
   "closeHint": "Fermer l'indication",
   "menu": {
+    "home": "Accueil",
     "schedule": "Plan de travail",
     "payslips": "Bulletins de salaire",
     "vacation": "Demander des vacances",
     "chat": "Chat",
     "training": "Vidéos de formation",
-    "notification": "Tester la notification"
+    "notification": "Tester la notification",
+    "more": "Plus"
   },
   "notification": {
     "title": "Notification de Töpfer Salate",
@@ -27,6 +29,13 @@
   "language": {
     "title": "Choisir la langue",
     "description": "Choisissez votre langue préférée pour l'application. Votre sélection sera enregistrée automatiquement."
+  },
+  "navigation": {
+    "title": "Choisir la navigation",
+    "description": "Sélectionnez votre style de navigation préféré. Ce paramètre est à des fins de démonstration et sera enregistré automatiquement.",
+    "sidebar": "Barre latérale (Bureau)",
+    "top": "Haut (Horizontal)",
+    "bottom": "Bas (Mobile)"
   },
   "install": {
     "title": "Installer",

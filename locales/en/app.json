@@ -11,12 +11,14 @@
   "iosHintText": "To install this app, open the Share icon in Safari and select \"Add to Home Screen\".",
   "closeHint": "Close hint",
   "menu": {
+    "home": "Home",
     "schedule": "Work Schedule",
     "payslips": "Payslips",
     "vacation": "Request Vacation",
     "chat": "Chat with Team",
     "training": "Training Videos",
-    "notification": "Test Notification"
+    "notification": "Test Notification",
+    "more": "More"
   },
   "notification": {
     "title": "Notification from Töpfer Salate",
@@ -27,6 +29,13 @@
   "language": {
     "title": "Select Language",
     "description": "Choose your preferred language for the application. Your selection will be saved automatically."
+  },
+  "navigation": {
+    "title": "Choose Navigation",
+    "description": "Select your preferred navigation style. This setting is for demonstration purposes and will be saved automatically.",
+    "sidebar": "Sidebar (Desktop)",
+    "top": "Top (Horizontal)",
+    "bottom": "Bottom (Mobile)"
   },
   "install": {
     "title": "Install",

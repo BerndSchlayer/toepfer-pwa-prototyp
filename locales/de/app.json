@@ -11,12 +11,14 @@
   "iosHintText": "Um diese App zu installieren, öffne das Teilen Symbol in Safari und wähle \"Zum Home Bildschirm\".",
   "closeHint": "Hinweis schließen",
   "menu": {
+    "home": "Startseite",
     "schedule": "Dienstplan",
     "payslips": "Lohnabrechnungen",
     "vacation": "Urlaub beantragen",
     "chat": "Chat",
     "training": "Schulungsvideos",
-    "notification": "Benachrichtigung testen"
+    "notification": "Benachrichtigung testen",
+    "more": "Mehr"
   },
   "notification": {
     "title": "Benachrichtigung von Töpfer Salate",
@@ -27,6 +29,13 @@
   "language": {
     "title": "Sprache wählen",
     "description": "Wählen Sie Ihre bevorzugte Sprache für die Anwendung. Ihre Auswahl wird automatisch gespeichert."
+  },
+  "navigation": {
+    "title": "Navigation wählen",
+    "description": "Wählen Sie Ihren bevorzugten Navigationsstil. Diese Einstellung dient zu Demonstrationszwecken und wird automatisch gespeichert.",
+    "sidebar": "Seitenleiste (Desktop)",
+    "top": "Oben (Horizontal)",
+    "bottom": "Unten (Mobile)"
   },
   "install": {
     "title": "Installieren",
