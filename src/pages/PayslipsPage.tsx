@@ -55,10 +55,25 @@ export default function PayslipsPage() {
     return type === "payslip" ? t("payslips.payslip") : t("payslips.timesheet");
   };
 
-  const handleDownload = (document: string) => {
+  const handleDownload = (documentPath: string) => {
     const baseUrl = import.meta.env.BASE_URL;
-    const url = `${baseUrl}${document}`;
-    window.open(url, "_blank");
+    const url = `${baseUrl}${documentPath}`;
+
+    // Erstelle einen temporären Link und klicke ihn programmatisch
+    // Dies funktioniert besser auf iOS als window.open()
+    const link = window.document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    // Füge den Link temporär zum DOM hinzu
+    window.document.body.appendChild(link);
+    link.click();
+
+    // Entferne den Link nach kurzer Zeit wieder
+    setTimeout(() => {
+      window.document.body.removeChild(link);
+    }, 100);
   };
 
   return (

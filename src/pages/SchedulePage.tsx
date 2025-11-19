@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   ChevronLeft,
@@ -127,27 +127,45 @@ export default function SchedulePage() {
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const navigationRef = useRef<HTMLDivElement>(null);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  // Native passive touch events für bessere Performance
+  useEffect(() => {
+    const element = navigationRef.current;
+    if (!element) return;
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX.current = e.touches[0].clientX;
+    };
 
-  const handleTouchEnd = () => {
-    const swipeThreshold = 50;
-    const diff = touchStartX.current - touchEndX.current;
+    const handleTouchMove = (e: TouchEvent) => {
+      touchEndX.current = e.touches[0].clientX;
+    };
 
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0 && currentWeekIndex < weeks.length - 1) {
-        goToNextWeek();
-      } else if (diff < 0 && currentWeekIndex > 0) {
-        goToPreviousWeek();
+    const handleTouchEnd = () => {
+      const swipeThreshold = 50;
+      const diff = touchStartX.current - touchEndX.current;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentWeekIndex < weeks.length - 1) {
+          goToNextWeek();
+        } else if (diff < 0 && currentWeekIndex > 0) {
+          goToPreviousWeek();
+        }
       }
-    }
-  };
+    };
+
+    // Passive Event Listener für bessere Scroll-Performance
+    element.addEventListener("touchstart", handleTouchStart, { passive: true });
+    element.addEventListener("touchmove", handleTouchMove, { passive: true });
+    element.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      element.removeEventListener("touchstart", handleTouchStart);
+      element.removeEventListener("touchmove", handleTouchMove);
+      element.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [currentWeekIndex, weeks.length]);
 
   const isToday = (dateString: string): boolean => {
     const today = new Date();
@@ -179,12 +197,7 @@ export default function SchedulePage() {
         <h1 className="page-title">{t("schedule.title")}</h1>
       </header>
 
-      <div
-        className="week-navigation"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+      <div ref={navigationRef} className="week-navigation">
         <button
           type="button"
           onClick={goToPreviousWeek}

@@ -64,7 +64,7 @@ function App() {
     };
 
     window.addEventListener("beforeinstallprompt", handler);
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
