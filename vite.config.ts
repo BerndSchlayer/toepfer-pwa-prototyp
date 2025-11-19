@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico"],
+      includeAssets: ["favicon.ico", "*.pdf"],
       manifest: {
         name: "Toepfer PWA Prototyp",
         short_name: "ToepferPWA",
