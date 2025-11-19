@@ -66,6 +66,29 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages]);
 
+  // Scroll zu letzter Nachricht wenn Tastatur eingeblendet wird (iOS)
+  useEffect(() => {
+    const handleResize = () => {
+      // Timeout damit die Tastatur-Animation abgeschlossen ist
+      setTimeout(() => {
+        scrollToBottom();
+      }, 100);
+    };
+
+    window.addEventListener("resize", handleResize);
+    // visualViewport API für bessere iOS Keyboard Detection
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", handleResize);
+      }
+    };
+  }, [messages]);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };

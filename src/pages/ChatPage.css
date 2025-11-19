@@ -14,6 +14,7 @@
   height: 600px;
   max-height: 70vh;
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
   /* iOS Keyboard Fix */
   position: relative;
@@ -159,6 +160,9 @@
   padding: 1rem;
   background: white;
   border-top: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .chat-action-button {
@@ -166,6 +170,7 @@
   align-items: center;
   justify-content: center;
   width: 40px;
+  min-width: 40px;
   height: 40px;
   background: #f5f9f6;
   border: 1px solid #e0e0e0;
@@ -175,6 +180,7 @@
   color: #4a7c59;
   flex-shrink: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .chat-action-button svg {
@@ -193,6 +199,7 @@
 
 .chat-input {
   flex: 1;
+  min-width: 0;
   padding: 0.75rem 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -200,6 +207,7 @@
   outline: none;
   transition: all 0.2s ease;
   font-family: inherit;
+  box-sizing: border-box;
   /* iOS-spezifische Fixes */
   font-size: 16px; /* Verhindert Auto-Zoom auf iOS */
   -webkit-appearance: none;
@@ -216,6 +224,7 @@
   align-items: center;
   justify-content: center;
   width: 40px;
+  min-width: 40px;
   height: 40px;
   background: linear-gradient(135deg, #4a7c59 0%, #5a8f6a 100%);
   border: none;
@@ -225,6 +234,7 @@
   color: white;
   flex-shrink: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .chat-send-button:hover:not(:disabled) {
@@ -244,13 +254,22 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .chat-page-container {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  
+  .page-header {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
   .chat-container {
     /* Verwende dvh (dynamic viewport height) für iOS Keyboard Support */
     height: calc(100dvh - 200px);
     max-height: calc(100dvh - 200px);
     min-height: 500px;
     border-radius: 0;
-    width: 100%;
     /* Fallback für ältere Browser */
     height: calc(100vh - 200px);
     max-height: calc(100vh - 200px);
@@ -281,6 +300,7 @@
   .chat-action-button,
   .chat-send-button {
     width: 36px;
+    min-width: 36px;
     height: 36px;
   }
 
@@ -297,28 +317,63 @@
     position: sticky;
     bottom: 0;
     z-index: 10;
+    background: white;
   }
   
-  .chat-container {
-    /* Verwende fixed positioning für iOS */
-    position: fixed;
-    bottom: 60px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    margin: 0 auto;
-    max-width: 100%;
+  .messages-container {
+    /* Verbessert das Scrollverhalten bei Tastatur-Einblendung */
+    overflow-anchor: auto;
+    scroll-behavior: smooth;
   }
   
-  @media (min-width: 769px) {
+  @media (max-width: 768px) {
+    .chat-page-container {
+      padding: 0;
+    }
+    
+    .chat-page-container .page-header {
+      padding: 0 1rem;
+    }
+    
     .chat-container {
-      position: relative;
-      bottom: auto;
+      width: 100vw;
+      max-width: 100vw;
+      border-radius: 0;
+      /* Nutze dvh für bessere Tastatur-Anpassung */
+      height: calc(100dvh - 140px);
+      max-height: calc(100dvh - 140px);
+    }
+    
+    .messages-container {
+      /* Stelle sicher dass Container flexibel schrumpfen kann */
+      min-height: 0;
+      flex: 1 1 auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chat-page-container .page-header {
+      padding: 0 0.75rem;
+    }
+    
+    .chat-container {
+      height: calc(100dvh - 120px);
+      max-height: calc(100dvh - 120px);
     }
   }
 }
 
 @media (max-width: 480px) {
+  .chat-page-container {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+  
+  .page-header {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+  
   .chat-container {
     /* Verwende dvh für iOS */
     height: calc(100dvh - 180px);
