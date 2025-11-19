@@ -6,6 +6,7 @@ import {
   MessageCircle,
   Video,
   Bell,
+  Home,
 } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
 import "./Sidebar.css";
@@ -55,6 +56,7 @@ export default function Sidebar({ onMenuItemClick }: SidebarProps) {
   };
 
   const menuItems = [
+    { key: "home", icon: Home, label: t("menu.home") },
     { key: "schedule", icon: Calendar, label: t("menu.schedule") },
     { key: "payslips", icon: FileText, label: t("menu.payslips") },
     { key: "vacation", icon: Plane, label: t("menu.vacation") },

@@ -122,6 +122,10 @@ function App() {
     alert(t("installNotSupported"));
   };
 
+  const logoSrc = `${import.meta.env.BASE_URL}${encodeURI(
+    "LOGO Standard freigestellt.jpg"
+  )}`;
+
   return (
     <div className="app-container">
       {navigationMode === "sidebar" && (
@@ -161,7 +165,15 @@ function App() {
           </Suspense>
           {currentPage === "home" && (
             <>
-              <section className="app-section">
+              <section className="app-section homepage-intro">
+                <div className="homepage-logo">
+                  <img
+                    src={logoSrc}
+                    alt={t("appTitle")}
+                    width={128}
+                    height={128}
+                  />
+                </div>
                 <h2 className="app-section-title">{t("homepageTitle")}</h2>
                 <p className="app-section-text">{t("homepageText")}</p>
               </section>
