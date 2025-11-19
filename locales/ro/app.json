@@ -97,7 +97,11 @@
     "takePhoto": "Fă o poză",
     "autoResponse": "Mulțumim pentru mesaj! Vă vom răspunde în curând.",
     "cameraNotSupported": "Camera nu este suportată pe acest dispozitiv.",
-    "cameraError": "Eroare la accesarea camerei. Verificați permisiunile."
+    "cameraError": "Eroare la accesarea camerei. Verificați permisiunile.",
+    "cameraModalTitle": "Previzualizare cameră",
+    "cameraModalDescription": "Atingeți butonul pentru a face o poză.",
+    "cameraCancel": "Anulează",
+    "cameraCapture": "Fă o poză"
   },
   "training": {
     "title": "Videoclipuri de formare",

@@ -97,7 +97,11 @@
     "takePhoto": "Foto aufnehmen",
     "autoResponse": "Danke für Ihre Nachricht! Wir melden uns bald.",
     "cameraNotSupported": "Kamera wird von diesem Gerät nicht unterstützt.",
-    "cameraError": "Fehler beim Zugriff auf die Kamera. Bitte überprüfen Sie die Berechtigungen."
+    "cameraError": "Fehler beim Zugriff auf die Kamera. Bitte überprüfen Sie die Berechtigungen.",
+    "cameraModalTitle": "Kamera aktiv",
+    "cameraModalDescription": "Tippen Sie auf den Auslöser, um ein Foto aufzunehmen.",
+    "cameraCancel": "Abbrechen",
+    "cameraCapture": "Foto aufnehmen"
   },
   "training": {
     "title": "Schulungsvideos",
