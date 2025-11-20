@@ -7,7 +7,7 @@
           "dayOfWeek": "monday",
           "entries": [
             { "type": "work", "timeFrom": "07:00", "timeTo": "12:00", "department": "Halle 1" },
-            { "type": "work", "timeFrom": "13:00", "timeTo": "16:00", "department": "E" }
+            { "type": "work", "timeFrom": "13:00", "timeTo": "E", "department": "" }
           ]
         },
         {
@@ -31,7 +31,7 @@
         {
           "dayOfWeek": "friday",
           "entries": [
-            { "type": "work", "timeFrom": "09:00", "timeTo": "14:00", "department": "E" }
+            { "type": "work", "timeFrom": "09:00", "timeTo": "E", "department": "" }
           ]
         }
       ]
@@ -49,7 +49,7 @@
          {
           "dayOfWeek": "tuesday",
           "entries": [
-            { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "E" }
+            { "type": "work", "timeFrom": "08:00", "timeTo": "16:00", "department": "" }
           ]
         },
         {
@@ -84,7 +84,7 @@
         {
           "dayOfWeek": "tuesday",
           "entries": [
-            { "type": "work", "timeFrom": "08:00", "timeTo": "12:00", "department": "E" },
+            { "type": "work", "timeFrom": "08:00", "timeTo": "12:00", "department": "" },
             { "type": "work", "timeFrom": "13:00", "timeTo": "15:00", "department": "Halle 1" }
           ]
         },
@@ -120,7 +120,7 @@
         {
           "dayOfWeek": "monday",
           "entries": [
-            { "type": "work", "timeFrom": "07:00", "timeTo": "10:00", "department": "E" },
+            { "type": "work", "timeFrom": "07:00", "timeTo": "10:00", "department": "" },
             { "type": "work", "timeFrom": "11:00", "timeTo": "16:00", "department": "Halle 3" }
           ]
         },
@@ -139,7 +139,7 @@
         {
           "dayOfWeek": "thursday",
           "entries": [
-            { "type": "work", "timeFrom": "08:00", "timeTo": "13:00", "department": "E" }
+            { "type": "work", "timeFrom": "08:00", "timeTo": "13:00", "department": "" }
           ]
         },
         {
